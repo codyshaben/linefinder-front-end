@@ -5,7 +5,22 @@ import './App.scss';
 function App() {
   return (
     <div className="App">
-      <p>Testing firebase</p>
+      <header>
+        <h1>lineFinder</h1>
+        <nav>
+          <a>Log In</a>
+          <a>Sign Up</a>
+        </nav>
+      </header>
+      <main>
+        <section>
+          <h2>Start your next backcountry adventure.</h2>
+          <nav>
+            <a>Places</a>
+            <a>People</a>
+          </nav> 
+        </section>  
+      </main>
     </div>
   );
 }
