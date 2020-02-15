@@ -4,7 +4,7 @@ import People from './Components/People/People';
 
 const Routes = {
     '/places': () => <Places />,
-    '/people': () => <People />
+    '/people': () => <People />,
 };
 
 export default Routes

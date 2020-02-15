@@ -1,5 +1,6 @@
 import React from 'react'
 import './People.scss'
+import '../../App.scss'
 
 function People() {
     
