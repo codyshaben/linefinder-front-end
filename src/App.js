@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './App.scss';
-import Places from './Components/Places/Places'
-import People from './Components/People/People'
 import Home from './Components/Home/Home'
 
 function App() {
 
-  const [showPlaces, setShowPlaces] = useState(false)
-  const [showPeople, setShowPeople] = useState(false)
+  const [showHome, setShowHome] = useState(true)
 
-  const showHome = () => {
-    return <Home 
-      setShowPlaces={setShowPlaces}
-      setShowPeople={setShowPeople}
-      />
+  const showHomeComponent = () => {
+    return showHome === true ?
+      <Home />
+    :null
   }
 
   return ( 
@@ -25,9 +21,7 @@ function App() {
           <a>Sign Up</a>
         </nav>
       </header>
-      {
-        showPlaces === true ? <Places /> : (showPeople === true ? <People /> : showHome())
-      }
+      {showHomeComponent()}
     </div>
   );
 }
