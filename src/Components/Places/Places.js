@@ -6,6 +6,7 @@ import StarRatings from 'react-star-ratings'
 function Places() {
 
     const [trails, setTrails] = useState([]);
+    const [limit, setLimit] = useState(10)
     // const [loading, setLoading] = useState(true);
     // const [error, setError] = useState(null);
   
@@ -23,12 +24,15 @@ function Places() {
             // })
     }, [trails]);
 
+    const onLoadMore = () => {
+        setLimit(limit + 10)
+    }
 
     return (
         <div className='places' >
-            {trails.map(trail => {
-                return ( 
-                    <section className='trail-container' key={trail.id}>
+           {trails.slice(0, limit).map(trail => {
+            return (
+                <section className='trail-container' key={trail.id}>
                         <div className='left-side'>
                             <h4>{trail.name}</h4>
                             <p className='location'>{trail.location}</p>
@@ -42,9 +46,10 @@ function Places() {
                                 starDimension='40px'
                             />
                         </div> 
-                    </section>
-                )
-            })}
+            </section>
+            )
+        })}
+            <a href='#' onClick={onLoadMore} className='load-more'>Load More</a>
         </div>
     )
 }

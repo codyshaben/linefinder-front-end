@@ -32,12 +32,9 @@
     display: flex;
     flex-direction: row;
     font-size: 30px;
-    margin-top: 10px;
-    width: 92%;
+    margin: 10px;
+    width: 100%;
 
-    @media only screen and (min-width: 401px) and (max-width: 960px) {
-        width: 88%;
-    }
 }
 
 .left-side {
@@ -102,4 +99,20 @@
 
 .location {
     margin-top: 0;
+}
+
+.load-more {
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif; 
+    color: black;
+    padding: 2em;
+    font-size: 30px;
+
+    &:hover {
+        color:rgb(11, 125, 201)
+    }
+
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        font-size: 20px;
+    }
 }
