@@ -1,55 +1,45 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Places.scss';
 import '../Home/Home.scss';
-import StarRatings from 'react-star-ratings'
+import ListView from '../ListView/ListView'
+import MapView from '../MapView/MapView'
+import { useRoutes, A } from 'hookrouter';
+
+const routes =  {
+    '/list': () => <ListView />,
+    '/maps': () => <MapView />,
+};
 
 function Places() {
 
-    const [trails, setTrails] = useState([]);
-    const [limit, setLimit] = useState(10)
-    // const [loading, setLoading] = useState(true);
-    // const [error, setError] = useState(null);
-  
-    useEffect(() => {
-        fetch('https://linefinder-back-end.herokuapp.com/trails',
-        )
-            .then(res => res.json())
-            .then(json => {
-                setTrails(json.trails)
-                // setLoading(false)            
-            })
-            // .catch(err => {
-            //     setError(err)
-            //     setLoading(false)
-            // })
-    }, [trails]);
+    const routeResult = useRoutes(routes)
 
-    const onLoadMore = () => {
-        setLimit(limit + 10)
-    }
+    // const [showTrail, setShowTrail] = useState(true)
+    // const [showMap, setShowMap] = useState(false)
+
+    // const viewMap = () => {
+    //     setShowTrail(false)
+    //     setShowMap(true)
+    // }
+
+    // const viewList  = () => {
+    //     setShowTrail(true)
+    //     setShowMap(false)
+    // }
+
 
     return (
         <div className='places' >
-           {trails.slice(0, limit).map(trail => {
-            return (
-                <section className='trail-container' key={trail.id}>
-                        <div className='left-side'>
-                            <h4>{trail.name}</h4>
-                            <p className='location'>{trail.location}</p>
-                            <img className='image' src={trail.imgMedium} alt='Not Found'></img>
-                        </div> 
-                        <div className='right-side'>
-                            <p>{trail.summary}</p>
-                            <StarRatings
-                                rating={trail.stars}
-                                starRatedColor='rgb(11, 125, 201)'
-                                starDimension='40px'
-                            />
-                        </div> 
+            <section className='views'>
+                <p>Views</p>
+                <div className='view-buttons'>
+                    <A className='list-view' href='/places/list'>List</A>
+                    <A className='map-view' href='/places/maps'>Map</A>
+                </div>
             </section>
-            )
-        })}
-            <a href='#' onClick={onLoadMore} className='load-more'>Load More</a>
+            {routeResult}
+        {/* {showTrail === true ? <ListView /> :null}
+        {showMap === true ? <MapView /> :null} */}
         </div>
     )
 }
