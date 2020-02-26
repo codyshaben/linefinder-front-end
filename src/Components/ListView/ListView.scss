@@ -13,8 +13,14 @@
         font-size: 30px;
     }
 
+    p {
+        font-size: 20px;
+    }
+
     @media only screen and (min-width: 401px) and (max-width: 960px) {
-        margin-left: 5rem;
+        p {
+            font-size: 18px;
+        }
         
         h3 {
             font-size: 20px

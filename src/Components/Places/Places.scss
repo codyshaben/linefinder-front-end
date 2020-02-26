@@ -7,35 +7,58 @@
     flex-direction: column;
     flex-wrap: wrap;
     background-color: white;
+    box-sizing: border-box;
 
     @media only screen and (min-width: 401px) and (max-width: 960px) {
-        margin-left: 5rem;
+
     }
 }
 
 .views {
-    margin-top: 50px;
+    margin-top: 40px;
     font-family: 'Raleway', sans-serif; 
     display: flex;
-    flex-direction: column;
-    align-self: center;
-
-    p {
-        align-self: center;
-        margin-bottom: 10px;
-        box-shadow: 0 2px 0 0 black;
-    }
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     
-    a {
+    A {
         font-family: 'Raleway', sans-serif; 
         border: none;
-        font-size: 22px;
+        font-size: 20px;
         padding: .5em;
+        text-decoration: none;
+        color: black;
 
         &:hover {
             cursor: pointer;
             color: rgb(11, 125, 201);
             border: none;
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+.dropdown-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    box-sizing: border-box;
+    background-color: rgb(189, 192, 194);
+    z-index: 1;
+    padding: .5em;
+    border-bottom: solid .25px;
+
+    header {
+        padding: 0;
+        font-size: 22px;
+        font-weight: 100;
+
+        &:hover {
+            cursor: pointer;
         }
     }
 }

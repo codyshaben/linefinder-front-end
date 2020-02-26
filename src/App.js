@@ -4,7 +4,7 @@ import Home from './Components/Home/Home'
 
 function App() {
 
-  const [showHome, setShowHome] = useState(true)
+  const [showHome] = useState(true)
 
   return ( 
     <div className="App">

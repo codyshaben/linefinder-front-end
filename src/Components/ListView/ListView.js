@@ -15,7 +15,7 @@ function ListView() {
         fetch('https://linefinder-back-end.herokuapp.com/trails', { signal: abortController.signal })
             .then(res => res.json())
             .then(json => {
-                setTrails(json.trails)
+                setTrails(json.data)
                 setIsError(false)
                 setIsLoading(true)
             })
@@ -52,7 +52,7 @@ function ListView() {
             </section>
             )
         })}
-            <a href='#' onClick={onLoadMore} className='load-more'>Load More</a>
+            <button onClick={onLoadMore} className='load-more'>Load More</button>
         </div>
     )
 }
