@@ -11,8 +11,8 @@
 
     @media only screen and (min-width: 401px) and (max-width: 960px) {
 
-    }
-}
+    };
+};
 
 .views {
     margin-top: 40px;
@@ -35,13 +35,13 @@
             cursor: pointer;
             color: rgb(11, 125, 201);
             border: none;
-        }
-    }
+        };
+    };
 
     p {
         margin: 0;
-    }
-}
+    };
+};
 
 .dropdown-menu {
     display: flex;
@@ -50,24 +50,32 @@
     box-sizing: border-box;
     background-color: rgb(189, 192, 194);
     z-index: 1;
-    padding: .5em;
+    padding: 1.5em;
     border-bottom: solid .25px;
+
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        padding: .5em;
+    };
 
     header {
         padding: 0;
-        font-size: 22px;
+        font-size: 30px;
         font-weight: 150;
 
         &:hover {
             cursor: pointer;
         }
-    }
-}
+
+        @media only screen and (min-width: 401px) and (max-width: 960px) {
+            font-size: 22px;
+        };
+    };
+};
 
 .trail-listing {
     display: flex;
     flex-direction: column;
-}
+};
 
 .load-more {
     text-decoration: none;
@@ -82,54 +90,24 @@
     &:hover {
         color:rgb(11, 125, 201);
         cursor: pointer;
-    }
+    };
 
     @media only screen and (min-width: 401px) and (max-width: 960px) {
         font-size: 20px;
-    }
-}
+    };
+};
 
-.rating-dropdown {
+.dropdown-title {
     margin-left: 10px;    
 
     header {
-        font-size: 22px;
-        font-weight: 325;
-        margin-left: 1em;
+        font-size: 30px;
+        font-weight: 250;
+        margin-left: .85em;
+
+        @media only screen and (min-width: 401px) and (max-width: 960px) {
+            font-size: 22px;
+            margin-left: 1em;
+        };
     };
-
-    @media only screen and (max-width: 400px) {
-        header {
-            font-size: 10px;
-            margin-left: .6em;
-        }
-      }
-}
-
-// .rating-dropdown-list {
-//     list-style: none;
-//     font-size: 20px;
-//     position: absolute;
-//     background-color: rgb(189, 192, 194);
-//     z-index: 1;
-//     color: black;
-//     display: flex;
-//     flex-direction: column;
-//     padding: 0;
-//     margin-top: .75em;
-// }
-
-// .rating-list-item {
-//     margin: .5em;
-//     font-weight: 225;
-//     padding: .2em;
-//     text-decoration: none;
-//     color: black;
-
-//     &:hover {
-//         color: rgb(11, 125, 201);
-//         cursor: pointer;
-//         font-weight: 300;
-//     }
-// }
-
+};

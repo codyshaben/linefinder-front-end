@@ -4,7 +4,7 @@ import './AllTrails.scss';
 import api from '../../api.js'
 
 const TwoStarTrails = (props) => {
-    const { limit, onLoadMore } = props;
+    const { limit, onLoadMore, trailContainer } = props;
 
     const [ twoStarTrails, setTwoStarTrails ] = useState([])
 
@@ -23,21 +23,7 @@ const TwoStarTrails = (props) => {
     return (
         <div className='all-trails'>
             {twoStarTrails.slice(0, limit).map(trail => {
-            return (
-                <section className='trail-container' key={trail.id}>
-                        <div className='left-side'>
-                            <h4>{trail.name}</h4>
-                            <p className='location'>{trail.location}</p>
-                            <StarRatings
-                                rating={trail.stars}
-                                starRatedColor='rgb(11, 125, 201)'
-                                starDimension='30px'
-                            />
-                            <p className='summary'>{trail.summary}</p>
-                        </div> 
-                        <img className='image' src={trail.imgMedium} alt='Not Found'></img>
-            </section>
-            )
+            return trailContainer(trail)
         })}
         <button onClick={onLoadMore} className='load-more'>Load More</button>
         </div>
