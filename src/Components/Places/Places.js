@@ -16,9 +16,20 @@ function Places() {
     const [isRatingOpen, setRatingOpen ] = useState(false);
     const [isDifficultyOpen, setDifficultyOpen ] = useState(false);
 
+    const showRatingDropDown = () => setRatingOpen(true)
+    const hideRatingDropDown = () => setRatingOpen(false)
     const toggleRatingDropDown = () => setRatingOpen(!isRatingOpen);
     const toggleDifficultyDropDown = () => setDifficultyOpen(!isDifficultyOpen);
     const onLoadMore = () => setLimit(limit + 10);
+
+    const trailDifficultySymbols = (difficulty) => {
+        return difficulty === 'dblack' ? 'Double Black'
+        : difficulty === 'black' ? 'Black'
+        : difficulty === 'blueBlack' ? 'Blue Black'
+        : difficulty === 'blue' ? 'Blue'
+        : difficulty === 'greenBlue' ? 'Green Blue'
+        : 'Green'
+    }
 
     const trailContainer = (trail) => {
         return (
@@ -26,6 +37,7 @@ function Places() {
                 <div className='left-side'>
                     <h4>{trail.name}</h4>
                     <p className='location'>{trail.location}</p>
+                    <p className='star-text'>{trail.stars} Stars  | {trail.starVotes} Reviews</p>
                     <StarRatings
                         rating={trail.stars}
                         starRatedColor='rgb(11, 125, 201)'
@@ -33,6 +45,15 @@ function Places() {
                     />
                     <p className='summary'>{trail.summary}</p>
                 </div> 
+                <div className='left-side trail-info'>
+                    <p className='trail-details'>Difficulty | {trailDifficultySymbols(trail.difficulty)}</p>
+                    <p className='trail-details'>Length | {trail.length} Miles</p>
+                    <p className='trail-details'>Ascent | {trail.ascent} Feet</p>
+                    <p className='trail-details'>Descent | {trail.descent} Feet</p>
+                    <p className='trail-details'>Highest Altitude | {trail.high} Feet</p>
+                    <p className='trail-details'>Lowest Altitude | {trail.low} Feet</p>
+
+                </div>
                 <img className='image' src={trail.imgMedium} alt='Not Found'></img>
             </section>
         )
@@ -60,7 +81,7 @@ function Places() {
                 <header>Sort by</header>
                 <div className='dropdown-title'>
                     <header onClick={toggleRatingDropDown}>Rating</header>
-                    { isRatingOpen === false ? null : <RatingDropdown routes={routes}/> }
+                    { isRatingOpen === false ? null : <RatingDropdown hideRatingDropDown={hideRatingDropDown} routes={routes}/> }
                 </div>
                 <div className='dropdown-title'>
                     <header onClick={toggleDifficultyDropDown}>Difficulty</header>

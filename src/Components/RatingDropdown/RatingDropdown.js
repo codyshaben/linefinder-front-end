@@ -2,10 +2,11 @@ import React from 'react'
 // import './RatingDropdown.scss'
 import { A } from 'hookrouter';
 
-const RatingDropdown = () => {
+const RatingDropdown = (props) => {
+    const { hideRatingDropDown } = props
 
     return(
-        <div className='rating-dropdown'>
+        <div className='rating-dropdown' onMouseLeave={hideRatingDropDown}>
             <ul className='rating-dropdown-list'>
                 <A href='/places/five-star' className='rating-list-item'>Five Star</A> 
                 <A href='/places/four-star'className='rating-list-item'>Four Star</A>

@@ -61,6 +61,7 @@
         padding: 0;
         font-size: 30px;
         font-weight: 150;
+        margin-right:15px;
 
         &:hover {
             cursor: pointer;
@@ -103,7 +104,7 @@
     header {
         font-size: 30px;
         font-weight: 250;
-        margin-left: .85em;
+        margin: 0 20px 0 20px;
 
         @media only screen and (min-width: 401px) and (max-width: 960px) {
             font-size: 22px;
@@ -111,3 +112,16 @@
         };
     };
 };
+
+.star-text {
+    margin: 5px 0 5px 0;
+    font-weight: 150;
+}
+
+.trail-info {
+    border: solid 1px;
+    border-radius: 5px;
+    height: fit-content;
+    align-self: center;
+    padding: 5px;    
+}
