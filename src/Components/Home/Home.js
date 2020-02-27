@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import './Home.scss';
-import Places from '../Places/Places'
-import People from '../People/People'
-import { useRoutes, A } from 'hookrouter';
+import Places from '../Places/Places';
+import People from '../People/People';
+import {useRoutes, A} from 'hookrouter';
 
 const routes =  {
     '/places*': () => <Places />,
@@ -10,14 +10,13 @@ const routes =  {
 };
 
 function Home() {
-
     const routeResult = useRoutes(routes)   
 
     return (
         <div className='home'>
             <h2>Start your next backcountry adventure.</h2>
             <nav className='people-places-nav'>
-                <A href='/places/list' >Places</A>
+                <A href='/places/all-trails' >Places</A>
                 <A href='/people'>People</A>
             </nav> 
             {routeResult}
