@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import AllTrails from '../AllTrails/AllTrails';
+import RatingDropdown from '../RatingDropdown/RatingDropdown'
 // import MapView from '../MapView/MapView';
 import FiveStarTrails from '../AllTrails/FiveStarTrails';
 import FourStarTrails from '../AllTrails/FourStarTrails';
@@ -37,17 +38,11 @@ function Places() {
             </section> 
             <section className='dropdown-menu'>
                 <header>Sort by</header>
-                <div className='star-dropdown'>
+                <div className='rating-dropdown'>
                     <header onClick={toggleDropDown}>Rating</header>
                     { 
                     isOpen === false ? null 
-                    : <ul className='star-dropdown-list'onMouseLeave={hideDropdown}>
-                        <A href='/places/five-star' className='star-list-item'>Five Star</A> 
-                        <A href='/places/four-star'className='star-list-item'>Four Star</A>
-                        <A href='/places/three-star'className='star-list-item'>Three Star</A>
-                        <A href='/places/two-star'className='star-list-item'>Two Star</A>
-                        <A href='/places/one-star'className='star-list-item'>One Star</A>
-                    </ul>
+                    : <RatingDropdown routes ={routes}/>
                     }
             </div>
                 {/* <DifficultyDropdown /> */}

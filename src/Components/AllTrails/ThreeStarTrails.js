@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import StarRatings from 'react-star-ratings';
 import './AllTrails.scss';
-import api from '../../api.js'
+import '../RatingDropdown/RatingDropdown.scss'
+import api from '../../api.js';
 
 const ThreeStarTrails = (props) => {
     const { limit, onLoadMore } = props;

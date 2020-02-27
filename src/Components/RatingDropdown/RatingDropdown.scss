@@ -1,0 +1,31 @@
+.rating-dropdown-list {
+    list-style: none;
+    font-size: 20px;
+    position: absolute;
+    background-color: rgb(189, 192, 194);
+    z-index: 1;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin-top: .45em;
+
+    @media only screen and (max-width: 400px) {
+        padding: 0;
+        margin-top: .75em;
+    }
+}
+
+.rating-list-item {
+    margin: .5em;
+    font-weight: 225;
+    padding: .2em;
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+        color: rgb(11, 125, 201);
+        cursor: pointer;
+        font-weight: 300;
+    }
+}
