@@ -1,11 +1,24 @@
-import React from 'react'
-import StarRatings from 'react-star-ratings'
-
-import './AllTrails.scss'
-
+import React, { useState, useEffect } from 'react';
+import StarRatings from 'react-star-ratings';
+import api from '../../api.js'
+import './AllTrails.scss';
 
 const AllTrails = (props) => {
-    const { limit, onLoadMore, trails } = props
+    const { limit, onLoadMore } = props;
+
+    const [trails, setTrails] = useState([]);
+
+    useEffect(() => {
+        async function fetchData() {
+            await fetch(api.allTrails)
+                .then(res => res.json())
+                .then(json => {
+                    setTrails(json.data)
+                })
+                .catch((error) => console.log(error))
+        }
+        fetchData()
+    }, []);
     
     return (
         <div className="all-trails">
@@ -28,8 +41,8 @@ const AllTrails = (props) => {
         })}
         <button onClick={onLoadMore} className='load-more'>Load More</button>
         </div>
-    )
-}
+    );
+};
 
 
-export default AllTrails
+export default AllTrails;

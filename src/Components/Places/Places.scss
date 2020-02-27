@@ -113,6 +113,8 @@
     background-color: rgb(189, 192, 194);
     z-index: 1;
     color: black;
+    display: flex;
+    flex-direction: column;
 }
 
 .star-list-item {

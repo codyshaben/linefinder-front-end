@@ -10,7 +10,7 @@ const routes =  {
 };
 
 function Home() {
-    const routeResult = useRoutes(routes)   
+    const routeResult = useRoutes(routes);
 
     return (
         <div className='home'>
@@ -21,7 +21,7 @@ function Home() {
             </nav> 
             {routeResult}
         </div>
-    )
-}
+    );
+};
 
 export default Home;

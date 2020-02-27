@@ -1,6 +1,6 @@
-import React from 'react'
-import './People.scss'
-import '../../App.scss'
+import React from 'react';
+import './People.scss';
+import '../../App.scss';
 
 function People() {
     
@@ -8,7 +8,7 @@ function People() {
         <div className='people'>
             <p>hello from the people page</p>
         </div>
-    )
-}
+    );
+};
 
-export default People
+export default People;

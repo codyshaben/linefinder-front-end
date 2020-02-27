@@ -1,17 +1,28 @@
-import React, { useState, useEffect } from 'react'
-import StarRatings from 'react-star-ratings'
-import api from '../../api'
+import React, { useState, useEffect } from 'react';
+import StarRatings from 'react-star-ratings';
+import './AllTrails.scss';
+import api from '../../api.js'
 
-import './FiveStarTrails.scss'
+const FourStarTrails = (props) => {
+    const { limit, onLoadMore } = props;
 
-const FiveStarTrails = (props) => {
-    const { limit, onLoadMore, fiveStarTrails } = props
+    const [ fourStarTrails, setFourStarTrails ] = useState([])
 
-    const [fiveStars, setFiveStars] = useState([]);
+    useEffect(() => {
+        async function fetchData() {
+            await fetch(api.fourStarTrails)
+                .then(res => res.json())
+                .then(json => {
+                    setFourStarTrails(json.data)
+                })
+                .catch((error) => console.log(error))
+        }
+        fetchData()
+    }, []);
     
     return (
-        <div className="five-star-trails">
-            {fiveStarTrails.slice(0, limit).map(trail => {
+        <div className='all-trails'>
+            {fourStarTrails.slice(0, limit).map(trail => {
             return (
                 <section className='trail-container' key={trail.id}>
                         <div className='left-side'>
@@ -30,8 +41,8 @@ const FiveStarTrails = (props) => {
         })}
         <button onClick={onLoadMore} className='load-more'>Load More</button>
         </div>
-    )
-}
+    );
+};
 
 
-export default FiveStarTrails
+export default FourStarTrails;
