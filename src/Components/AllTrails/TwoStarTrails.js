@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import StarRatings from 'react-star-ratings';
 import './AllTrails.scss';
 import api from '../../api.js'
 
 const TwoStarTrails = (props) => {
     const { limit, onLoadMore, trailContainer } = props;
 
-    const [ twoStarTrails, setTwoStarTrails ] = useState([])
+    const [ twoStarTrails, setTwoStarTrails ] = useState([]);
 
     useEffect(() => {
         async function fetchData() {

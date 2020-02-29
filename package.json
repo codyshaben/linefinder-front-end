@@ -13,6 +13,7 @@
     "react-onclickoutside": "^6.9.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.1",
+    "react-spinners": "^0.8.0",
     "react-star-rating-component": "^1.4.1",
     "react-star-ratings": "^2.3.0"
   },
@@ -38,6 +39,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.6",
+    "babel-plugin-emotion": "^10.0.28",
     "hookrouter": "^1.2.3"
   }
 }

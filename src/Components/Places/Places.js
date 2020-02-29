@@ -9,14 +9,13 @@ import TwoStarTrails from '../AllTrails/TwoStarTrails';
 import OneStarTrails from '../AllTrails/OneStarTrails';
 import StarRatings from 'react-star-ratings';
 import './Places.scss';
-import {useRoutes, A} from 'hookrouter';
+import { useRoutes } from 'hookrouter';
 
 function Places() {
     const [limit, setLimit] = useState(10);
     const [isRatingOpen, setRatingOpen ] = useState(false);
     const [isDifficultyOpen, setDifficultyOpen ] = useState(false);
 
-    const showRatingDropDown = () => setRatingOpen(true)
     const hideRatingDropDown = () => setRatingOpen(false)
     const toggleRatingDropDown = () => setRatingOpen(!isRatingOpen);
     const toggleDifficultyDropDown = () => setDifficultyOpen(!isDifficultyOpen);
@@ -34,7 +33,7 @@ function Places() {
     const trailContainer = (trail) => {
         return (
             <section className='trail-container' key={trail.id}>
-                <div className='left-side'>
+                <div className='left-side trail-description'>
                     <h4>{trail.name}</h4>
                     <p className='location'>{trail.location}</p>
                     <p className='star-text'>{trail.stars} Stars  | {trail.starVotes} Reviews</p>

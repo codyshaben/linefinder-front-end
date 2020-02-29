@@ -35,14 +35,19 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
     font-size: 30px;
     margin: 10px;
     width: 100%;
 
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        :nth-child(3) {
+            justify-content: flex-end;
+        }
+    }
 }
 
 .left-side {
-    width: 25%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,14 +66,13 @@
 }
 
 .image {
-    max-width: 350px;
-    min-width: 350px;
+    width: 400px;
     border-radius: 5px;
 
     @media only screen and (min-width: 401px) and (max-width: 960px) {
-        max-width: 300px;
-        max-height: 300px; 
+        width: 300px;
     }
+
 }
 
 .location {
@@ -174,8 +178,20 @@
     }
 }
 
-.right-side {
-    h4 {
-        margin: 0;
+.loading-spinner {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h3 {
+        margin-top: 50px;
+
+        @media only screen and (min-width: 401px) and (max-width: 960px) {
+            margin-left: 45px;
+        }
     }
+
+    
+
 }

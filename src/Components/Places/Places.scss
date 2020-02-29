@@ -119,9 +119,16 @@
 }
 
 .trail-info {
-    border: solid 1px;
-    border-radius: 5px;
     height: fit-content;
     align-self: center;
     padding: 5px;    
+}
+
+.trail-details {
+    width: 275px;
+    margin: 10px 0 10px 0;
+}
+
+.trail-description {
+    width: 350px;
 }
