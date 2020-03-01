@@ -3,7 +3,7 @@
     padding: 0;
     display: flex;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     background-color: white;
 
@@ -28,6 +28,7 @@
     }
 }
 
+
 .trail-container {
     padding: 30px;
     background-color:rgb(240, 236, 236);
@@ -38,7 +39,6 @@
     flex-wrap: wrap;
     font-size: 30px;
     margin: 10px;
-    width: 100%;
 
     @media only screen and (min-width: 401px) and (max-width: 960px) {
         :nth-child(3) {
@@ -128,6 +128,7 @@
     font-size: 30px;
     border: none;
     align-content: center;
+    align-self: center;
     outline: none;
 
     &:hover {
@@ -183,6 +184,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-self: center;
 
     h3 {
         margin-top: 50px;
@@ -191,7 +193,8 @@
             margin-left: 45px;
         }
     }
+}
 
-    
-
+.views {
+    display: inline;
 }

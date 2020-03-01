@@ -1,6 +1,13 @@
 .map-listing {
+    
     p {
-        padding-bottom: 400px;
+        // padding-bottom: 400px;
         background-color: white;
     }
+}
+
+.all-trails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
