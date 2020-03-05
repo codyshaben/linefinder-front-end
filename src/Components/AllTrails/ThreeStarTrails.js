@@ -4,7 +4,7 @@ import '../RatingDropdown/RatingDropdown.scss'
 import api from '../../api.js';
 
 const ThreeStarTrails = (props) => {
-    const { limit, onLoadMore, trailContainer } = props;
+    const { limit, onLoadMore, trailContainer, mapContainer, viewMapList, listView, setLoadMoreButton, loadMoreButton, showLoading, loading, setIsLoading } = props;
 
     const [ threeStarTrails, setThreeStarTrails ] = useState([])
 
@@ -14,18 +14,22 @@ const ThreeStarTrails = (props) => {
                 .then(res => res.json())
                 .then(json => {
                     setThreeStarTrails(json.data)
+                    setIsLoading(false)
+                    setLoadMoreButton(true)
                 })
                 .catch((error) => console.log(error))
         }
         fetchData()
-    }, []);
+    }, [setIsLoading, setLoadMoreButton]);
     
     return (
         <div className='all-trails'>
-            {threeStarTrails.slice(0, limit).map(trail => {
-            return trailContainer(trail)
-        })}
-        <button onClick={onLoadMore} className='load-more'>Load More</button>
+            {viewMapList()}
+            { loading === true ? showLoading() : null }
+            { listView === true ? threeStarTrails.slice(0, limit).map(trail => {
+                return trailContainer(trail)
+            }): mapContainer(threeStarTrails)}
+            { loadMoreButton === true ? <button onClick={onLoadMore} className='load-more'>Load More</button> : null }
         </div>
     );
 };

@@ -5,4 +5,4 @@ export default {
     threeStarTrails: 'https://linefinder-back-end.herokuapp.com/trails/three-star',
     twoStarTrails: 'https://linefinder-back-end.herokuapp.com/trails/two-star',
     oneStarTrails: 'https://linefinder-back-end.herokuapp.com/trails/one-star',
-}
+};

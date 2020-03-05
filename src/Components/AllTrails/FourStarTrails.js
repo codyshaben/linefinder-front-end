@@ -3,7 +3,7 @@ import './AllTrails.scss';
 import api from '../../api.js'
 
 const FourStarTrails = (props) => {
-    const { limit, onLoadMore, trailContainer } = props;
+    const { limit, onLoadMore, trailContainer, mapContainer, viewMapList, listView, setLoadMoreButton, loadMoreButton, showLoading, loading, setIsLoading } = props;
 
     const [ fourStarTrails, setFourStarTrails ] = useState([])
 
@@ -13,18 +13,22 @@ const FourStarTrails = (props) => {
                 .then(res => res.json())
                 .then(json => {
                     setFourStarTrails(json.data)
+                    setIsLoading(false)
+                    setLoadMoreButton(true)
                 })
                 .catch((error) => console.log(error))
         }
         fetchData()
-    }, []);
+    }, [setIsLoading, setLoadMoreButton]);
     
     return (
         <div className='all-trails'>
-            {fourStarTrails.slice(0, limit).map(trail => {
-            return trailContainer(trail)
-        })}
-        <button onClick={onLoadMore} className='load-more'>Load More</button>
+            {viewMapList()}
+            { loading === true ? showLoading() : null }
+            { listView === true ? fourStarTrails.slice(0, limit).map(trail => {
+                return trailContainer(trail)
+            }): mapContainer(fourStarTrails)}
+            { loadMoreButton === true ? <button onClick={onLoadMore} className='load-more'>Load More</button> : null }
         </div>
     );
 };

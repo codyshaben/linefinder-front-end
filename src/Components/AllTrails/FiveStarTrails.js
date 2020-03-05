@@ -3,7 +3,7 @@ import './AllTrails.scss';
 import api from '../../api.js'
 
 const FiveStarTrails = (props) => {
-    const { limit, onLoadMore, trailContainer } = props;
+    const { limit, onLoadMore, trailContainer, mapContainer, viewMapList, listView, setLoadMoreButton, loadMoreButton, showLoading, loading, setIsLoading } = props;
 
     const [ fiveStarTrails, setFiveStarTrails ] = useState([])
 
@@ -13,18 +13,22 @@ const FiveStarTrails = (props) => {
                 .then(res => res.json())
                 .then(json => {
                     setFiveStarTrails(json.data)
+                    setIsLoading(false)
+                    setLoadMoreButton(true)
                 })
                 .catch((error) => console.log(error))
         }
         fetchData()
-    }, []);
+    }, [setIsLoading, setLoadMoreButton]);
     
     return (
         <div className="all-trails">
-            {fiveStarTrails.slice(0, limit).map(trail => {
+            {viewMapList()}
+            { loading === true ? showLoading() : null }
+            { listView === true ? fiveStarTrails.slice(0, limit).map(trail => {
                 return trailContainer(trail)
-            })}
-        <button onClick={onLoadMore} className='load-more'>Load More</button>
+            }): mapContainer(fiveStarTrails)}
+            { loadMoreButton === true ? <button onClick={onLoadMore} className='load-more'>Load More</button> : null }
         </div>
     );
 };

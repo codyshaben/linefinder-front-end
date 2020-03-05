@@ -7,26 +7,40 @@ import FourStarTrails from '../AllTrails/FourStarTrails';
 import ThreeStarTrails from '../AllTrails/ThreeStarTrails';
 import TwoStarTrails from '../AllTrails/TwoStarTrails';
 import OneStarTrails from '../AllTrails/OneStarTrails';
+import Marker from './Marker';
 import StarRatings from 'react-star-ratings';
 import noImage from './Images/image-not-found.png'
-// import black from './Images/Black.png'
-// import dblack from './Images/DoubleBlack.png'
-// import blueBlack from './Images/BlueBlack.png'
-// import blue from './Images/Blue.png'
-// import greenBlue from './Images/GreenBlue.png'
-// import green from './Images/Green.png'
+import GoogleMapReact from 'google-map-react';
+import RingLoader from 'react-spinners/RingLoader';
 import './Places.scss';
 import { useRoutes } from 'hookrouter';
+
 
 function Places() {
     const [limit, setLimit] = useState(10);
     const [isRatingOpen, setRatingOpen ] = useState(false);
     const [isDifficultyOpen, setDifficultyOpen ] = useState(false);
+    const [listView, setListView] = useState(true);
+    const [mapView, setMapView] = useState(false);
+    const [loadMoreButton, setLoadMoreButton] = useState(false);
+    const [loading, setIsLoading] = useState(true);
 
     const hideRatingDropDown = () => setRatingOpen(false);
     const toggleRatingDropDown = () => setRatingOpen(!isRatingOpen);
     const toggleDifficultyDropDown = () => setDifficultyOpen(!isDifficultyOpen);
     const onLoadMore = () => setLimit(limit + 10);
+
+    const showListView = () => {
+        setListView(true) 
+        setMapView(false)
+        setLoadMoreButton(true)
+    };
+
+    const showMapView = () => {
+        setListView(false) 
+        setMapView(true)
+        setLoadMoreButton(false)
+    };
 
     const trailDifficultySymbols = (difficulty) => {
         return difficulty === 'dblack' ? 'Double Black'
@@ -40,7 +54,26 @@ function Places() {
     const imageReplacement = (error) => {
         error.target.src=noImage
         return true
-    }
+    };
+
+    const showLoading = () => {
+        return (
+            <div className='loading-spinner'>
+                <RingLoader size={150} color={'rgb(11, 125, 201)'} loading={loading}/>
+                <h3>Loading...</h3>
+            </div>
+        );
+    };
+
+    const viewMapList = () => {
+        return (
+            <section className='views'>
+                    <button className='list-view' onClick={showListView}>List</button>
+                    <p>|</p>
+                    <button className='map-view' onClick={showMapView}>Map</button>
+            </section>
+        );
+    };
 
     const trailContainer = (trail) => {
         return (
@@ -63,7 +96,7 @@ function Places() {
                 <img 
                     className='image' 
                     src={trail.imgMedium} 
-                    alt='Trail Image'
+                    alt='Trail'
                     onError={imageReplacement}
                     >
                 </img>
@@ -71,19 +104,104 @@ function Places() {
         );
     };
 
-    const mapContainer = (trail) => {
+    const mapContainer = (trails) => {
         return (
-                <p className='map-view'>hello from the map container</p>
-        )
-    }
+            <div style={{ height: '100vh', width: '100%'}}>
+                <GoogleMapReact
+                    bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_API_KEY}}
+                    defaultCenter={{ lat: 39.766636, lng: -105.980210}}
+                    defaultZoom={8}
+                    defaultStyle={{  height: '500px', width: '500px'}}
+                >
+                {trails.map(trail => {
+                    return (
+                        <Marker lat={trail.latitude} lng={trail.longitude} key={trail.id}/>
+                    )
+                })}
+                </GoogleMapReact>
+            </div>
+        );
+    };
 
     const routes = {
-        '/all-trails': () => <AllTrails mapContainer={mapContainer} trailContainer={trailContainer} limit={limit} onLoadMore={onLoadMore}/>,
-        '/five-star': () => <FiveStarTrails mapContainer={mapContainer} trailContainer={trailContainer} limit={limit} onLoadMore={onLoadMore}/>,
-        '/four-star': () => <FourStarTrails mapContainer={mapContainer} trailContainer={trailContainer} limit={limit} onLoadMore={onLoadMore}/>,
-        '/three-star': () => <ThreeStarTrails mapContainer={mapContainer} trailContainer={trailContainer} limit={limit} onLoadMore={onLoadMore}/>,
-        '/two-star': () => <TwoStarTrails mapContainer={mapContainer} trailContainer={trailContainer} limit={limit} onLoadMore={onLoadMore}/>,
-        '/one-star': () => <OneStarTrails mapContainer={mapContainer} trailContainer={trailContainer} limit={limit} onLoadMore={onLoadMore}/>,
+        '/all-trails': () => <AllTrails 
+            mapContainer={mapContainer} 
+            trailContainer={trailContainer} 
+            limit={limit} 
+            onLoadMore={onLoadMore}
+            viewMapList={viewMapList}
+            setLoadMoreButton={setLoadMoreButton}
+            loadMoreButton={loadMoreButton}
+            listView={listView}
+            showLoading={showLoading}
+            loading={loading}
+            setIsLoading={setIsLoading}
+        />,
+        '/five-star': () => <FiveStarTrails 
+            mapContainer={mapContainer} 
+            trailContainer={trailContainer} 
+            limit={limit} 
+            onLoadMore={onLoadMore}
+            viewMapList={viewMapList}
+            setLoadMoreButton={setLoadMoreButton}
+            loadMoreButton={loadMoreButton}
+            listView={listView}
+            showLoading={showLoading}
+            loading={loading}
+            setIsLoading={setIsLoading}
+        />,
+        '/four-star': () => <FourStarTrails 
+            mapContainer={mapContainer} 
+            trailContainer={trailContainer} 
+            limit={limit} 
+            onLoadMore={onLoadMore}
+            viewMapList={viewMapList}
+            setLoadMoreButton={setLoadMoreButton}
+            loadMoreButton={loadMoreButton}
+            listView={listView}
+            showLoading={showLoading}
+            loading={loading}
+            setIsLoading={setIsLoading}
+        />,
+        '/three-star': () => <ThreeStarTrails 
+            mapContainer={mapContainer} 
+            trailContainer={trailContainer} 
+            limit={limit} 
+            onLoadMore={onLoadMore}
+            viewMapList={viewMapList}
+            setLoadMoreButton={setLoadMoreButton}
+            loadMoreButton={loadMoreButton}
+            listView={listView}
+            showLoading={showLoading}
+            loading={loading}
+            setIsLoading={setIsLoading}
+        />,
+        '/two-star': () => <TwoStarTrails 
+            mapContainer={mapContainer} 
+            trailContainer={trailContainer} 
+            limit={limit} 
+            onLoadMore={onLoadMore}
+            viewMapList={viewMapList}
+            setLoadMoreButton={setLoadMoreButton}
+            loadMoreButton={loadMoreButton}
+            listView={listView}
+            showLoading={showLoading}
+            loading={loading}
+            setIsLoading={setIsLoading}
+        />,
+        '/one-star': () => <OneStarTrails 
+            mapContainer={mapContainer} 
+            trailContainer={trailContainer} 
+            limit={limit} 
+            onLoadMore={onLoadMore}
+            viewMapList={viewMapList}
+            setLoadMoreButton={setLoadMoreButton}
+            loadMoreButton={loadMoreButton}
+            listView={listView}
+            showLoading={showLoading}
+            loading={loading}
+            setIsLoading={setIsLoading}
+        />,
     };
 
     const routeResult = useRoutes(routes);
