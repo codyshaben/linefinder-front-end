@@ -17,9 +17,16 @@ function Places() {
     const [fetchUrl, setFetchUrl] = useState('')
     const [trails, setTrails] = useState([]);
 
-    // const hideRatingDropDown = () => setRatingOpen(false);
-    const toggleRatingDropDown = () => setRatingOpen(!isRatingOpen);
-    const toggleDifficultyDropDown = () => setDifficultyOpen(!isDifficultyOpen);
+    const toggleRatingDropDown = () => {
+        setRatingOpen(!isRatingOpen);
+        setDifficultyOpen(false);
+    };
+
+    const toggleDifficultyDropDown = () => {
+        setRatingOpen(false);
+        setDifficultyOpen(!isDifficultyOpen);
+    };
+
     const onLoadMore = () => setLimit(limit + 10);
 
     useEffect(() => {
@@ -66,7 +73,7 @@ function Places() {
             </section>
         );
     };
-    
+
     return (
         <div className='places' >   
             <section className='dropdown-menu'>

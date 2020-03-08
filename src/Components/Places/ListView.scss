@@ -1,3 +1,8 @@
+.list-view {
+    display: flex;
+    flex-direction: column;
+}
+
 .trail-container {
     padding: 30px;
     background-color:rgb(240, 236, 236);
@@ -113,4 +118,16 @@
         cursor: pointer;
         font-weight: 300;
     }
+}
+
+.result-length {
+    font-size: 15px;
+    margin: 25px 10px 0 0;
+    align-self: flex-end;
+}
+
+.symbol {
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
 }
