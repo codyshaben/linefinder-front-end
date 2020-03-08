@@ -1,4 +1,4 @@
-.rating-dropdown-list {
+.difficulty-dropdown-list {
     list-style: none;
     font-size: 20px;
     position: absolute;
@@ -10,28 +10,28 @@
     justify-content: center;
     padding-left: 0;
     margin-top: 25px;
-    margin-left: -138px;
+    margin-left: -271px;
     width: 100%;
     align-self: center;
 
     @media only screen and (min-width: 401px) and (max-width: 960px) {
         padding: 0;
         margin-top: .75em;
-        margin-left: -107px;
+        margin-left: -220px;
     }
 }
 
-.rating-li {
+.difficulty-li {
     background-color: rgb(189, 192, 194);
     border: none;
     outline: none;
-    margin: 10px;
+    margin: 10px 0 10px 0;
     font-weight: 225;
     text-decoration: none;
     color: black;
     font-size: 25px;
     align-self: flex-start;
-    width: 150px;
+    width: 200px;
 
     &:hover {
         color: rgb(11, 125, 201);
@@ -45,7 +45,7 @@
     }
 
     @media only screen and (min-width: 401px) and (max-width: 960px) {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     

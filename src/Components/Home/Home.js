@@ -5,7 +5,7 @@ import People from '../People/People';
 import {useRoutes, A} from 'hookrouter';
 
 const routes =  {
-    '/places*': () => <Places />,
+    '/places': () => <Places />,
     '/people': () => <People />,
 };
 
@@ -16,7 +16,7 @@ function Home() {
         <div className='home'>
             <h2>Start your next backcountry adventure.</h2>
             <nav className='people-places-nav'>
-                <A href='/places/all-trails' >Places</A>
+                <A href='/places' >Places</A>
                 <A href='/people'>People</A>
             </nav> 
             {routeResult}

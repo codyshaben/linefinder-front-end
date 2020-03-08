@@ -1,20 +1,24 @@
 import React from 'react'
-// import './RatingDropdown.scss'
-import { A } from 'hookrouter';
+import './RatingDropdown.scss'
 
 const RatingDropdown = (props) => {
-    const { hideRatingDropDown } = props
+    const { setFetchUrl } = props
+
+    const filterFiveStars = () => setFetchUrl('five-star')
+    const filterFourStars = () => setFetchUrl('four-star')
+    const filterThreeStars = () => setFetchUrl('three-star')
+    const filterTwoStars = () => setFetchUrl('two-star')
+    const filterOneStars = () => setFetchUrl('one-star')
+
 
     return(
-        <div className='rating-dropdown' onMouseLeave={hideRatingDropDown}>
-            <ul className='rating-dropdown-list'>
-                <A href='/places/five-star' className='rating-list-item'>Five Star</A> 
-                <A href='/places/four-star'className='rating-list-item'>Four Star</A>
-                <A href='/places/three-star'className='rating-list-item'>Three Star</A>
-                <A href='/places/two-star'className='rating-list-item'>Two Star</A>
-                <A href='/places/one-star'className='rating-list-item'>One Star</A>
-            </ul>
-        </div>
+        <ul className='rating-dropdown-list'>
+            <button  className='rating-li' onClick={filterFiveStars}>Five Star</button> 
+            <button className='rating-li' onClick={filterFourStars}>Four Star</button>
+            <button className='rating-li' onClick={filterThreeStars}>Three Star</button>
+            <button className='rating-li' onClick={filterTwoStars}>Two Star</button>
+            <button className='rating-li' onClick={filterOneStars}>One Star</button>
+        </ul>
     )
 }
 
