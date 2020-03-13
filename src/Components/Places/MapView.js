@@ -16,7 +16,11 @@ const MapView = (props) => {
             >
             {trails.map(trail => {
                 return (
-                    <Marker lat={trail.latitude} lng={trail.longitude} key={trail.id}/>
+                    <Marker 
+                        key={trail.id}
+                        lat={trail.latitude} 
+                        lng={trail.longitude}
+                    />
                 )
             })}
             </GoogleMapReact>

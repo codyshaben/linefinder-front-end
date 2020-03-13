@@ -12,7 +12,7 @@ import './ListView.scss'
 
 
 const ListView = (props) => {
-    const { trails, limit } = props
+    const { trails, limit, loadMoreButton, onLoadMore } = props
     
     const trailDifficultySymbols = (difficulty) => {
         return difficulty === 'dblack' ? doubleBlack
@@ -42,7 +42,7 @@ const ListView = (props) => {
                         <p className='summary'>{trail.summary}</p>
                     </div> 
                     <div className='left-side trail-info'>
-                        <img className='trail-details symbol' src={trailDifficultySymbols(trail.difficulty)}></img>
+                        <img className='trail-details symbol' src={trailDifficultySymbols(trail.difficulty)} alt='Difficulty symbol'></img>
                         <p className='trail-details'>Length | {trail.length} Miles</p>
                         <p className='trail-details'>Ascent | {trail.ascent} Feet</p>
                         <p className='trail-details'>Descent | {trail.descent} Feet</p>
@@ -59,6 +59,7 @@ const ListView = (props) => {
                 </section>
             )
         })}
+        { loadMoreButton === true ? <button onClick={onLoadMore} className='load-more'>Load More</button> : null }
         </div>
     )
 }

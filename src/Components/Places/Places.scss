@@ -110,17 +110,25 @@
 };
 
 .loading-spinner {
-    margin-top: 100px;
+    margin: 100px 0 0 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-self: center;
 
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        margin: 70px 20px 0 0;
+    }
+
     h3 {
         margin-top: 50px;
+        margin-left: 20px;
+        font-size: 40px;
+        font-weight: 150;
 
         @media only screen and (min-width: 401px) and (max-width: 960px) {
-            margin-left: 45px;
+            font-size: 30px;
+            margin-left: 40px;
         }
     }
 }
@@ -129,8 +137,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
     border: 1px solid;
     border-radius: 1em;
     user-select: none;

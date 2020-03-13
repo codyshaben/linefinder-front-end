@@ -89,8 +89,8 @@ function Places() {
             </section>
             {viewMapList()}
             { loading === true ? showLoading() : null }
-            { listView === true ? <ListView trails={trails} limit={limit}/> : <MapView trails={trails}/> }
-            { loadMoreButton === true ? <button onClick={onLoadMore} className='load-more'>Load More</button> : null }
+            { listView === true ? <ListView trails={trails} limit={limit} onLoadMore={onLoadMore} loadMoreButton={loadMoreButton}/> : null } 
+            { mapView === true ? <MapView trails={trails} limit={limit}/> : null } 
         </div>
     );
 };
