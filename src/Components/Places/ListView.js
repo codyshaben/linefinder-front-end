@@ -3,9 +3,7 @@ import StarRatings from 'react-star-ratings';
 import noImage from '../../Images/image-not-found.png'
 import doubleBlack from '../../Images/double-black.jpg'
 import black from '../../Images/black.jpg'
-import blueBlack from '../../Images/blue-black.jpg'
 import blue from '../../Images/blue.jpg'
-import greenBlue from '../../Images/green-blue.jpg'
 import green from '../../Images/green.jpg'
 import './Places.scss'
 import './ListView.scss'
@@ -17,9 +15,7 @@ const ListView = (props) => {
     const trailDifficultySymbols = (difficulty) => {
         return difficulty === 'dblack' ? doubleBlack
         : difficulty === 'black' ? black
-        : difficulty === 'blueBlack' ? blueBlack
         : difficulty === 'blue' ? blue
-        : difficulty === 'greenBlue' ? greenBlue
         : green
     };
 

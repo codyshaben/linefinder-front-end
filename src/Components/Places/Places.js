@@ -38,8 +38,8 @@ function Places() {
                 setIsLoading(false)
                 setLoadMoreButton(true)
             })
-            .catch((error) => console.log(error))
-    }
+            .catch(error => console.log(error))
+        }
         fetchData()
     }, [fetchUrl]);
 

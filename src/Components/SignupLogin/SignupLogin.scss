@@ -1,5 +1,5 @@
 .signup-login {
-    background-color: rgb(230, 228, 228);
+    background-color: rgb(236, 234, 234);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -18,26 +18,31 @@
 
     button {
         text-decoration: none;
+        background-color: rgb(11, 125, 201);
+        border-radius: 5px;
+        outline: none;
         width: 150px;
         align-self: center;
-        padding: 5px;
+        padding: 10px;
         border: none;
         margin-top: 25px;
         font-size: 25px;
         font-family: 'Raleway', sans-serif; 
         cursor: pointer;
+        opacity: .8;
 
         &:hover {
-            color: rgb(11, 125, 201); 
+            opacity: 1;
         }
     }
 }
 
 .form-input {
     outline: none;
-    font-size: 15px;
+    font-size: 18px;
+    font-weight: 150;
     border-radius: 5px;
-    border: rgb(230, 228, 228) solid 2px;
+    border: rgb(230, 228, 228) solid 1px;
     padding: 15px;
     margin: 5px 0 5px 0;
     font-family: 'Raleway', sans-serif; 
