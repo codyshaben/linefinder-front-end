@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './SignupLogin.scss';
 
 const Signup = (props) => {
-    const { hideHome } = props
+    const { setUserLoggedIn, firstName, setFirstName } = props
 
-    const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -38,11 +37,7 @@ const Signup = (props) => {
             postData()
             .then(() => {
                 setIsSending(false)
-                setFirstName('')
-                setLastName('')
-                setEmail('')
-                setPassword('')
-                setPasswordConfirmation('')
+                setUserLoggedIn(true)
             });
         }
     });
@@ -71,7 +66,6 @@ const Signup = (props) => {
 
     return(
         <div className='signup-login'>
-            {hideHome()}
             <form onSubmit={handleSubmit}>
                 <input 
                     className='form-input' 

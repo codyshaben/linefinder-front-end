@@ -6,7 +6,7 @@ import './Places.scss';
 import ListView from './ListView';
 import MapView from './MapView';
 
-function Places() {
+const  Places = () => {
     const [limit, setLimit] = useState(10);
     const [isRatingOpen, setRatingOpen ] = useState(false);
     const [isDifficultyOpen, setDifficultyOpen ] = useState(false);
@@ -28,6 +28,12 @@ function Places() {
     };
 
     const onLoadMore = () => setLimit(limit + 10);
+
+    const scrollToPlaces = () => {
+        const placesContainer = document.querySelector('.places')
+        placesContainer.scroll(0, 1000)
+    
+      }
 
     useEffect(() => {
         async function fetchData() {
@@ -75,7 +81,7 @@ function Places() {
     };
 
     return (
-        <div className='places' >   
+        <div className='places' onLoad={scrollToPlaces} > 
             <section className='dropdown-menu'>
                 <header>Sort by</header>
                 <div className='dropdown-title'>

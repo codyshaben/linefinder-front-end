@@ -2,13 +2,14 @@
 
 .app {
   font-family: 'Raleway', sans-serif; 
-}
+};
 
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-bottom: .5em;
+  background-color: white;
 
   .lineFinder {
     display: flex;
@@ -22,46 +23,103 @@ header {
     &:hover {
       cursor: pointer;
       color: rgb(11, 125, 201);
-    }
+    };
 
     @media only screen and (min-width: 401px) and (max-width: 960px) {
       font-size: 30px;
       margin-top: .4em;
-    }
+    };
 
     @media only screen and (max-width: 400px) {
       font-size: 25px;
-    }
-  }
+    };
+  };
+};
 
-  nav {
-    margin-right: 1em;
-    a {
-      color: black;
-      text-decoration: none;
-      padding: 10px;
-      font-size: 20px;
-      font-weight: 250;
+.login-signup-nav {
+  margin-right: 10px;
 
-      &:hover {
-        cursor: pointer;
-        color: rgb(11, 125, 201);
-        font-weight: 350;
-        box-shadow: 0 2px 0 0 rgb(11, 125, 201)
-      }
+  @media only screen and (max-width: 400px) {
+    margin-right: .5em;
+  };
 
-      @media only screen and (min-width: 401px) and (max-width: 960px) {
-        font-size: 15px;
-      }
+  a {
+    color: black;
+    text-decoration: none;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 250;
 
-      @media only screen and (max-width: 400px) {
-        font-size: 10px;
-        padding: .3em;        
-      }
-    }
+    &:hover {
+      cursor: pointer;
+      color: rgb(11, 125, 201);
+      font-weight: 350;
+      box-shadow: 0 2px 0 0 rgb(11, 125, 201)
+    };
+
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+      font-size: 15px;
+    };
 
     @media only screen and (max-width: 400px) {
-      margin-right: .5em;
-    }
-  }
-}
+      font-size: 10px;
+      padding: .3em;        
+    };
+  };
+};
+
+.home {
+  background: url('./Images/Canva-Mountains-Snow.jpg');
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media only screen and (min-width: 401px) and (max-width: 960px) {
+    font-size: 30px;
+    background-size: cover;
+  };
+
+  h2 {
+    font-size: 45px;
+    font-family: 'Raleway', sans-serif; 
+    font-weight: 300;
+    margin-top: 80px;
+
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+      font-size: 30px;
+    };
+  };
+};
+
+.people-places-nav {
+  margin-top: 150px;
+  align-items: center;
+
+  @media only screen and (min-width: 401px) and (max-width: 960px) {
+    margin-top: 150px;
+  };
+
+  a {
+    margin: .5em;
+    padding: .5em;
+    background-color: rgb(11, 125, 201);
+    border-radius: .5em;
+    font-size: 35px;
+    font-weight: 200;
+    opacity: .75;
+    border: none;
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      cursor: pointer;
+      opacity: .9;
+    };
+
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+      font-size: 25px;
+    };
+  };
+};
