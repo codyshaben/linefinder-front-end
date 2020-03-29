@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './SignupLogin.scss';
 
+import {
+    BrowserRouter as Router,
+    Route,
+    Redirect,
+    Switch,
+  } from 'react-router-dom'
+
 const Signup = (props) => {
-    const { setUserLoggedIn, firstName, setFirstName } = props
+    const { firstName, setFirstName, setSuccessfulSignup } = props
 
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
@@ -37,7 +44,7 @@ const Signup = (props) => {
             postData()
             .then(() => {
                 setIsSending(false)
-                setUserLoggedIn(true)
+                setSuccessfulSignup(true)
             });
         }
     });
@@ -65,6 +72,7 @@ const Signup = (props) => {
     }
 
     return(
+        <Router>
         <div className='signup-login'>
             <form onSubmit={handleSubmit}>
                 <input 
@@ -115,6 +123,13 @@ const Signup = (props) => {
                 <button type='submit'>Sign Up</button>
             </form>
         </div>
+        {/* <Switch>
+            {successfulSignup === true ? <Redirect from='/signup' to='/login' /> : null}
+            <Route path='/login'>
+                <Login />
+            </Route>
+        </Switch> */}
+        </Router>
     );
 };
 

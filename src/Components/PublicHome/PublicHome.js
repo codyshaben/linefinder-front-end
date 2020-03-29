@@ -20,7 +20,7 @@ const PublicHome = () => {
                 <ul>
                     <li>DON'T GO ALONE</li>
                     <li>Check local weather and look out for any avalanche alerts</li>
-                    <li>Always bring the proper equipment</li>
+                    <li>Always bring the proper equipment (Need help? Click <a id='rei-link' href='https://www.rei.com/learn/expert-advice/avalanche-safety-gear.html'>here</a>)</li>
                     <li>Last, but certainly not least, Have fun!!</li>
                 </ul>
             </div>

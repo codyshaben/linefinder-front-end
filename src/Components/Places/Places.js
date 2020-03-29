@@ -5,8 +5,11 @@ import RingLoader from 'react-spinners/RingLoader';
 import './Places.scss';
 import ListView from './ListView';
 import MapView from './MapView';
+import '../UserHome/UserHome.scss'
 
-const  Places = () => {
+const  Places = (props) => {
+    const { firstName } = props
+
     const [limit, setLimit] = useState(10);
     const [isRatingOpen, setRatingOpen ] = useState(false);
     const [isDifficultyOpen, setDifficultyOpen ] = useState(false);

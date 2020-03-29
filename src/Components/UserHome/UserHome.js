@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Places from '../Places/Places';
 import People from '../People/People';
 import './UserHome.scss';
@@ -7,29 +7,31 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    Link,
+    useRouteMatch
   } from 'react-router-dom'
+import PublicHome from '../PublicHome/PublicHome';
 
-const Home = (props) => {
-    const { firstName } = props
+const Home = () => {
 
     return (
-        <div className='home'>
-            <p>Welcome, {firstName}</p>
-            <h2>Start your next backcountry adventure.</h2>
+        <Router>
+        <div className='user-home'>
+            <p>Welcome,</p>
             <nav className='people-places-nav'>
-                <Link to ='/places'>Places</Link>
-                <Link to ='/people'>People</Link>
+                <Link to ='/home/places'>Places</Link>
+                <Link to ='/home/people'>People</Link>
             </nav>
         <Switch>
-            <Route path='/places'>
-                <Places/>
+            <Route path='/home/places'>
+                <Places />
             </Route>
-            <Route path='/people'>
+            <Route path='/home/people'>
                 <People />
             </Route>
         </Switch> 
         </div>
+        </Router>
       )
 };
 

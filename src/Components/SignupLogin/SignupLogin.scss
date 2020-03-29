@@ -1,20 +1,21 @@
 .signup-login {
     background: url('../../Images/Canva-Mountains-Snow.jpg');
     background-size: cover;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
 
     form {
-        margin-top: 100px;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-self: center;
         width: 300px;
         background-color: rgb(240, 236, 236);
         border-radius: 5px;
         padding: 55px 60px 55px 60px;
         height: fit-content;
+        margin: 200px 0 200px 0;
     }
 
     button {
