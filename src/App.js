@@ -11,14 +11,13 @@ import {
   Route,
   Link,
   Redirect,
+  useParams,
 } from 'react-router-dom'
 
 function App() {
   
+  const [id, setId] = useState('')
   const [firstName, setFirstName] = useState('')
-  const [successfulSignup, setSuccessfulSignup] = useState(false)
-  const [successfulLogin, setSuccessfulLogin] = useState(false)
-
 
   return ( 
     <Router>
@@ -31,25 +30,23 @@ function App() {
           </nav>
         </header>
         <Switch>
-          {successfulSignup === true ? <Redirect from='/signup' to='/login' /> : null}
-          {successfulLogin === true ? <Redirect from='/login' to='/home' /> : null}
           <Route path='/login'>
-              <Login 
-              setSuccessfulLogin={setSuccessfulLogin}
+            <Login 
               setFirstName={setFirstName}
-              firstName={firstName}/>
+              firstName={firstName}
+              setId={setId}
+            />
           </Route>
           <Route path='/signup'>
             <Signup 
               firstName={firstName}
               setFirstName={setFirstName}
-              setSuccessfulSignup={setSuccessfulSignup}
             />
           </Route>
-          <Route path='/home'>
+          <Route path='/home/:id'>
             <UserHome 
               firstName={firstName}
-              />
+            />
           </Route>
           <Route exact path='/'>
             <PublicHome />

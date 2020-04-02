@@ -2,36 +2,48 @@ import React, { useState, useEffect }from 'react'
 import './SignupLogin.scss'
 
 const Login = (props) => {
-    const { setSuccessfulLogin } = props
+    const { setId } = props
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [isSending, setIsSending] = useState(false)
 
     useEffect(() => {
-        const signupUrl = 'https://linefinder-back-end.herokuapp.com/auth/login'
+        const loginUrl = 'http://localhost:3000/auth/login'
 
-        const data = {
+        const user = {
             email: email,
             password: password,
         }
 
         async function postData() {
-            await fetch(signupUrl, {
+            await fetch(loginUrl, {
+                credentials: 'include',
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify(user),
             })
-            .then(res => res.json())
-            .then(json => json)
-            .catch(error => console.log(error))
-        };
-        if (isSending === true) {
+            .then(response => response.json())
+            .then(result => {
+                console.log(result)
+                if (result.message === 'Invalid login') {
+                    document.getElementById('login-response').innerText = result.message
+                } else {
+                    setIsSending(false)
+                    localStorage.token = result.token
+                    localStorage.user_id  = result.id
+                    window.location = `/home/${result.id}`
+                }
+            })
+            .catch(error => {
+                    console.error(error)
+            })
+        }
+        if (isSending) {
             postData()
             .then(() => {
                 setIsSending(false)
-                setSuccessfulLogin(true)
             });
         }
     });
@@ -39,20 +51,22 @@ const Login = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         setIsSending(true)
-        alert('Log in successful!')
     }
 
     const handleEmailChange = (event) => {
+        event.preventDefault()
         setEmail(event.target.value)
     }
 
     const handlePasswordChange = (event) => {
+        event.preventDefault()
         setPassword(event.target.value)
     }
 
     return(
         <div className='signup-login'>
             <form onSubmit={handleSubmit}>
+                <div id='login-response'></div>
                 <input 
                     className='form-input' 
                     type='text' 

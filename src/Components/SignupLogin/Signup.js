@@ -9,7 +9,7 @@ import {
   } from 'react-router-dom'
 
 const Signup = (props) => {
-    const { firstName, setFirstName, setSuccessfulSignup } = props
+    const { firstName, setFirstName } = props
 
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
@@ -18,7 +18,7 @@ const Signup = (props) => {
     const [isSending, setIsSending] = useState(false)
 
     useEffect(() => {
-        const signupUrl = 'https://linefinder-back-end.herokuapp.com/auth/signup'
+        const signupUrl = 'http://localhost:3000/auth/signup'
 
         const data = {
             first_name: firstName,
@@ -37,14 +37,18 @@ const Signup = (props) => {
                 body: JSON.stringify(data)
             })
             .then(res => res.json())
-            .then(json => json)
-            .catch(error => console.log(error))
+            .then(result => {
+                if (result.message === 'success') {
+                    window.location = `/home/${result.id}`
+                } else {
+                    document.getElementById('login-response').innerText = result.message
+                }
+            })
         };
         if (isSending === true) {
             postData()
             .then(() => {
                 setIsSending(false)
-                setSuccessfulSignup(true)
             });
         }
     });
@@ -52,7 +56,6 @@ const Signup = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         setIsSending(true)
-        alert('Account created successfully!')
     }
 
     const handleFirstNameChange = (event) => {
@@ -75,6 +78,7 @@ const Signup = (props) => {
         <Router>
         <div className='signup-login'>
             <form onSubmit={handleSubmit}>
+                <div id='login-response'></div>
                 <input 
                     className='form-input' 
                     type='text' 

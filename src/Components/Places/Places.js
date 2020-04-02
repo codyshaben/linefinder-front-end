@@ -40,7 +40,7 @@ const  Places = (props) => {
 
     useEffect(() => {
         async function fetchData() {
-        await fetch(`https://linefinder-back-end.herokuapp.com/trails/${fetchUrl}`)
+        await fetch(`http://localhost:3000/trails/${fetchUrl}`)
             .then(res => res.json())
             .then(json => {
                 setTrails(json.data)
