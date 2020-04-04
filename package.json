@@ -9,6 +9,7 @@
     "acorn": "^7.1.1",
     "dotenv": "^8.2.0",
     "google-map-react": "^1.1.6",
+    "kind-of": "^6.0.3",
     "minimist": "^1.2.5",
     "node-sass": "^4.13.1",
     "react": "^16.12.0",

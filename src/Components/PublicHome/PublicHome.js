@@ -6,7 +6,7 @@ const PublicHome = () => {
         <div className='public-home'>
             <h2>Start your next backcountry adventure.</h2>
             <div className='trail-content'>
-                <p>Create an account and gain access to over 400 backcountry trails to ski or snowboard in Colorado's Rocky Mountains. Get directions, trail info. (difficulty, ratings, vertical feet, etc.), and add your favorite trails to your personal collection. 
+                <p>Create an account and gain access to over 400 backcountry trails to ski or snowboard in Colorado's Rocky Mountains. Get directions, trail info. (difficulty, ratings, vertical feet, etc.), and add your favorite trails to your personal collection.
                 </p>
                 <h4>Trails</h4>
             </div>
@@ -25,7 +25,7 @@ const PublicHome = () => {
                 </ul>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default PublicHome;

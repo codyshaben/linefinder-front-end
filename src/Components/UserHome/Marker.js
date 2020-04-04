@@ -1,11 +1,11 @@
 import React from 'react';
-import './Places.scss';
+import './AllTrails.scss';
 
-const Marker = (props) =>{
+const Marker = (props) => {
 
     return (
-        <div 
-            className='marker' 
+        <div
+            className='marker'
             style={{ backgroundColor: 'rgb(11, 125, 201)', cursor: 'pointer' }}
         />
     );

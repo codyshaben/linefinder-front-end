@@ -1,62 +1,68 @@
-import React, {useEffect, useState} from 'react';
-import Places from '../Places/Places';
-import People from '../People/People';
+import React, { useEffect, useState } from 'react';
+import MyTrails from './MyTrails';
+import AllTrails from './AllTrails';
 import './UserHome.scss';
 
 import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link,
-    useParams
-  } from 'react-router-dom'
+    useParams,
+} from 'react-router-dom';
 
 const Home = (props) => {
-    const { id } = useParams()
-    console.log(id)
+    const { setIsLoggedIn, setId } = props;
+    const { id } = useParams();
 
-    const [firstName, setFirstName] = useState('')
+    const [user, setUser] = useState({});
 
     useEffect(() => {
 
         async function fetchData() {
-        await fetch(`http://localhost:3000/users/${id}`, {
-            headers: {
-                Authorization:  `Bearer ${localStorage.token}`
-            }
-        }) 
-            .then(res => res.json())
-            .then(user => {
-                setFirstName(user.data.first_name)
+            await fetch(`http://localhost:9000/users/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.token}`
+                }
             })
-            .catch(handleError)
-        }
-        fetchData()
-    }, [id]);
+                .then(res => res.json())
+                .then(result => {
+                    // console.log(result)
+                    // console.log('localstorage id', localStorage.user_id)
+                    // console.log('params id', id)
+                    if (result.message === 'Un-Authorized') {
+                        window.location = 'http://localhost:3001/login'
+                    } else {
+                        setIsLoggedIn(true)
+                        setUser(result.data)
+                        setId(id)
+                    }
+                })
+                .catch(handleError);
+        };
+        fetchData();
+    }, [id, setIsLoggedIn, setId]);
 
     const handleError = (error) => {
         console.error(error)
-    }
+    };
+
+    console.log(user)
 
     return (
         <Router>
-        <div className='user-home'>
-            <p>Welcome, {firstName}</p>
-            <nav className='people-places-nav'>
-                <Link to ='/home/places'>Places</Link>
-                <Link to ='/home/people'>People</Link>
-            </nav>
-        <Switch>
-            <Route path='/home/places'>
-                <Places />
-            </Route>
-            <Route path='/home/people'>
-                <People />
-            </Route>
-        </Switch> 
-        </div>
+            <div className='user-home'>
+                <p>Welcome, {user.first_name}</p>
+                <Switch>
+                    <Route path={`/home/${id}/mytrails`}>
+                        <MyTrails />
+                    </Route>
+                    <Route path={`/home/${id}/alltrails`}>
+                        <AllTrails />
+                    </Route>
+                </Switch>
+            </div>
         </Router>
-      )
+    );
 };
 
 export default Home;

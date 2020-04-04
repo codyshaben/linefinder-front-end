@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import Login from './Components/SignupLogin/Login'
-import Signup from './Components/SignupLogin/Signup'
-import UserHome from './Components/UserHome/UserHome'
-import PublicHome from './Components/PublicHome/PublicHome'
+import React, { useState } from 'react';
+import Login from './Components/SignupLogin/Login';
+import Signup from './Components/SignupLogin/Signup';
+import UserHome from './Components/UserHome/UserHome';
+import PublicHome from './Components/PublicHome/PublicHome';
 import './App.scss';
 
 import {
@@ -10,42 +10,72 @@ import {
   Switch,
   Route,
   Link,
-  Redirect,
-  useParams,
-} from 'react-router-dom'
+} from 'react-router-dom';
 
 function App() {
-  
-  const [id, setId] = useState('')
-  const [firstName, setFirstName] = useState('')
+  const [id, setId] = useState();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  return ( 
+  const myTrails = () => window.location = `http://localhost:3001/home/${id}/mytrails`;
+  const allTrails = () => window.location = `http://localhost:3001/home/${id}/alltrails`;
+  const userHome = () => window.location = `http://localhost:3001/home/${id}`;
+  
+  const logOut = () => {
+    localStorage.removeItem('token')  
+    window.location = 'http://localhost:3001/login'
+  };
+
+  const loggedInNav = () => {
+    return (
+      <div>
+        <Link
+          to={`/home/${id}`}
+          className='loggedIn-nav'
+          onClick={userHome}
+        >Home</Link>
+        <Link
+          to={`/home/${id}/mytrails`}
+          className='loggedIn-nav'
+          onClick={myTrails}
+        >My Trails</Link>
+        <Link
+          to={`/home/${id}/alltrails`}
+          className='loggedIn-nav'
+          onClick={allTrails}
+        >All Trails</Link>
+        <button className='loggedIn-nav' onClick={logOut}>Log Out</button>
+      </div>
+    );
+  };
+
+  const loggedOutNav = () => {
+    return (
+      <nav className='login-signup-nav'>
+        <Link to='/login' >Log In</Link>
+        <Link to='/signup'>Sign Up</Link>
+        <Link to='/'>Home</Link>
+      </nav>
+    );
+  };
+
+  return (
     <Router>
       <div className="App">
         <header>
-          <a href='/' className='lineFinder'>lineFinder</a>
-          <nav className='login-signup-nav'>
-              <Link to='/login' >Log In</Link>
-              <Link to='/signup'>Sign Up</Link>
-          </nav>
+          <h1 className='lineFinder'>lineFinder</h1>
+          {isLoggedIn === true ? loggedInNav() : loggedOutNav()}
         </header>
         <Switch>
           <Route path='/login'>
-            <Login 
-              setFirstName={setFirstName}
-              firstName={firstName}
-              setId={setId}
-            />
+            <Login />
           </Route>
           <Route path='/signup'>
-            <Signup 
-              firstName={firstName}
-              setFirstName={setFirstName}
-            />
+            <Signup />
           </Route>
           <Route path='/home/:id'>
-            <UserHome 
-              firstName={firstName}
+            <UserHome
+              setId={setId}
+              setIsLoggedIn={setIsLoggedIn}
             />
           </Route>
           <Route exact path='/'>

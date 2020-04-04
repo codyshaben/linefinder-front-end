@@ -1,23 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import './AllTrails.scss';
+import RingLoader from 'react-spinners/RingLoader';
 import RatingDropdown from '../RatingDropdown/RatingDropdown';
 import DifficultyDropdown from '../DifficultyDropdown/DifficultyDropdown';
-import RingLoader from 'react-spinners/RingLoader';
-import './Places.scss';
 import ListView from './ListView';
 import MapView from './MapView';
-import '../UserHome/UserHome.scss'
 
-const  Places = (props) => {
-    const { firstName } = props
+const AllTrails = () => {
 
     const [limit, setLimit] = useState(10);
-    const [isRatingOpen, setRatingOpen ] = useState(false);
-    const [isDifficultyOpen, setDifficultyOpen ] = useState(false);
+    const [isRatingOpen, setRatingOpen] = useState(false);
+    const [isDifficultyOpen, setDifficultyOpen] = useState(false);
     const [listView, setListView] = useState(true);
     const [mapView, setMapView] = useState(false);
     const [loadMoreButton, setLoadMoreButton] = useState(false);
     const [loading, setIsLoading] = useState(true);
-    const [fetchUrl, setFetchUrl] = useState('')
+    const [fetchUrl, setFetchUrl] = useState('');
     const [trails, setTrails] = useState([]);
 
     const toggleRatingDropDown = () => {
@@ -35,31 +33,30 @@ const  Places = (props) => {
     const scrollToPlaces = () => {
         const placesContainer = document.querySelector('.places')
         placesContainer.scroll(0, 1000)
-    
-      }
+    };
 
     useEffect(() => {
         async function fetchData() {
-        await fetch(`http://localhost:3000/trails/${fetchUrl}`)
-            .then(res => res.json())
-            .then(json => {
-                setTrails(json.data)
-                setIsLoading(false)
-                setLoadMoreButton(true)
-            })
-            .catch(error => console.log(error))
-        }
-        fetchData()
+            await fetch(`http://localhost:9000/trails/${fetchUrl}`)
+                .then(res => res.json())
+                .then(json => {
+                    setTrails(json.data)
+                    setIsLoading(false)
+                    setLoadMoreButton(true)
+                })
+                .catch(error => console.log(error));
+        };
+        fetchData();
     }, [fetchUrl]);
 
     const showListView = () => {
-        setListView(true) 
+        setListView(true)
         setMapView(false)
         setLoadMoreButton(true)
     };
 
     const showMapView = () => {
-        setListView(false) 
+        setListView(false)
         setMapView(true)
         setLoadMoreButton(false)
     };
@@ -67,7 +64,7 @@ const  Places = (props) => {
     const showLoading = () => {
         return (
             <div className='loading-spinner'>
-                <RingLoader size={150} color={'rgb(11, 125, 201)'} loading={loading}/>
+                <RingLoader size={150} color={'rgb(11, 125, 201)'} loading={loading} />
                 <h3>Loading...</h3>
             </div>
         );
@@ -76,32 +73,32 @@ const  Places = (props) => {
     const viewMapList = () => {
         return (
             <section className='views'>
-                    <button className='list-view' onClick={showListView}>List</button>
-                    <p>|</p>
-                    <button className='map-view' onClick={showMapView}>Map</button>
+                <button className='list-view' onClick={showListView}>List</button>
+                <p>|</p>
+                <button className='map-view' onClick={showMapView}>Map</button>
             </section>
         );
     };
 
     return (
-        <div className='places' onLoad={scrollToPlaces} > 
+        <div className='places' onLoad={scrollToPlaces} >
             <section className='dropdown-menu'>
                 <header>Sort by</header>
                 <div className='dropdown-title'>
                     <header onClick={toggleRatingDropDown}  >Rating</header>
-                    { isRatingOpen === false ? null : <RatingDropdown fetchUrl={fetchUrl} setFetchUrl={setFetchUrl}/>}
+                    {isRatingOpen === false ? null : <RatingDropdown fetchUrl={fetchUrl} setFetchUrl={setFetchUrl} />}
                 </div>
                 <div className='dropdown-title'>
                     <header onClick={toggleDifficultyDropDown}>Difficulty</header>
-                    { isDifficultyOpen === false ? null : <DifficultyDropdown fetchUrl={fetchUrl} setFetchUrl={setFetchUrl}/> }
+                    {isDifficultyOpen === false ? null : <DifficultyDropdown fetchUrl={fetchUrl} setFetchUrl={setFetchUrl} />}
                 </div>
             </section>
             {viewMapList()}
-            { loading === true ? showLoading() : null }
-            { listView === true ? <ListView trails={trails} limit={limit} onLoadMore={onLoadMore} loadMoreButton={loadMoreButton}/> : null } 
-            { mapView === true ? <MapView trails={trails} limit={limit}/> : null } 
+            {loading === true ? showLoading() : null}
+            {listView === true ? <ListView trails={trails} limit={limit} onLoadMore={onLoadMore} loadMoreButton={loadMoreButton} /> : null}
+            {mapView === true ? <MapView trails={trails} limit={limit} /> : null}
         </div>
     );
 };
 
-export default Places;
+export default AllTrails;
