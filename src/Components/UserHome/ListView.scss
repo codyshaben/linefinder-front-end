@@ -31,6 +31,11 @@
         margin: 0;
     }
 
+    div {
+        display: flex;
+        vertical-align: middle;
+    }
+
     @media only screen and (min-width: 401px) and (max-width: 960px) {
         h4 {
             font-size: 25px;
@@ -129,3 +134,19 @@
     width: 50px;
     border-radius: 5px;
 }
+
+.add-trail-btn {
+    width: 40px;
+    text-decoration: none;
+    border: none;
+    background-color:rgb(240, 236, 236);
+    font-size: 40px;
+    margin-left: 20px;
+    padding: 0;
+
+    &:hover {
+        cursor: pointer;
+        font: bolder;
+        color: rgb(11, 125, 201);
+    };
+};

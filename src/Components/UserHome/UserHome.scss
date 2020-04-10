@@ -1,7 +1,7 @@
 .user-home {
   background: url('../../Images/Canva-Mountains-Snow.jpg');
   background-size: cover;
-  height: 800px;
+  height: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,3 +53,20 @@
     };
   };
 };
+
+.my-trails {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  padding: 25px;
+  background-color: white;
+  margin-top: 25px; 
+  width: 90%;
+  border-radius: 5px;
+  height: 750px;
+  contain: size;
+}
+
+.map-list {
+  width: 35%;
+}

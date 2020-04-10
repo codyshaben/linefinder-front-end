@@ -3,6 +3,8 @@ import Login from './Components/SignupLogin/Login';
 import Signup from './Components/SignupLogin/Signup';
 import UserHome from './Components/UserHome/UserHome';
 import PublicHome from './Components/PublicHome/PublicHome';
+import AllTrails from './Components/UserHome/AllTrails';
+import MessageBoard from './Components/UserHome/MessageBoard'
 import './App.scss';
 
 import {
@@ -12,38 +14,27 @@ import {
   Link,
 } from 'react-router-dom';
 
-function App() {
-  const [id, setId] = useState();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const myTrails = () => window.location = `http://localhost:3001/home/${id}/mytrails`;
-  const allTrails = () => window.location = `http://localhost:3001/home/${id}/alltrails`;
-  const userHome = () => window.location = `http://localhost:3001/home/${id}`;
+const App = () => {
+  const id = localStorage.user_id
+  const [user, setUser] = useState({});
+  const [userTrails, setUserTrails] = useState([]);
   
   const logOut = () => {
-    localStorage.removeItem('token')  
+    localStorage.removeItem('token')
     window.location = 'http://localhost:3001/login'
   };
 
   const loggedInNav = () => {
     return (
       <div>
-        <Link
-          to={`/home/${id}`}
-          className='loggedIn-nav'
-          onClick={userHome}
-        >Home</Link>
-        <Link
-          to={`/home/${id}/mytrails`}
-          className='loggedIn-nav'
-          onClick={myTrails}
-        >My Trails</Link>
-        <Link
-          to={`/home/${id}/alltrails`}
-          className='loggedIn-nav'
-          onClick={allTrails}
-        >All Trails</Link>
-        <button className='loggedIn-nav' onClick={logOut}>Log Out</button>
+        <Link to={`/home/${id}`} className='loggedIn-nav'>Home</Link>
+        <Link to={`/home/${id}/message-board`} className='loggedIn-nav'>Message Board</Link>
+        <Link to={`/home/${id}/all-trails`} className='loggedIn-nav'>All Trails</Link>
+        <Link 
+          to='/login'
+          className='loggedIn-nav' 
+          onClick={logOut}
+        >Log Out</Link>
       </div>
     );
   };
@@ -63,7 +54,7 @@ function App() {
       <div className="App">
         <header>
           <h1 className='lineFinder'>lineFinder</h1>
-          {isLoggedIn === true ? loggedInNav() : loggedOutNav()}
+          {localStorage.token ? loggedInNav() : loggedOutNav()}
         </header>
         <Switch>
           <Route path='/login'>
@@ -72,10 +63,18 @@ function App() {
           <Route path='/signup'>
             <Signup />
           </Route>
-          <Route path='/home/:id'>
-            <UserHome
-              setId={setId}
-              setIsLoggedIn={setIsLoggedIn}
+          <Route path={`/home/${id}/all-trails`}>
+            <AllTrails user={user} id={id}/>
+          </Route>
+          <Route path={`/home/${id}/message-board`}>
+            <MessageBoard user={user} id={id}/>
+          </Route>
+          <Route path={`/home/${id}`}>
+            <UserHome 
+              setUser={setUser} 
+              setUserTrails={setUserTrails} 
+              user={user}
+              id={id}
             />
           </Route>
           <Route exact path='/'>

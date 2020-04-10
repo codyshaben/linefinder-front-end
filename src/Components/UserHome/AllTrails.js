@@ -6,7 +6,9 @@ import DifficultyDropdown from '../DifficultyDropdown/DifficultyDropdown';
 import ListView from './ListView';
 import MapView from './MapView';
 
-const AllTrails = () => {
+const AllTrails = (props) => {
+    const { user, id } = props
+
 
     const [limit, setLimit] = useState(10);
     const [isRatingOpen, setRatingOpen] = useState(false);
@@ -38,9 +40,9 @@ const AllTrails = () => {
     useEffect(() => {
         async function fetchData() {
             await fetch(`http://localhost:9000/trails/${fetchUrl}`)
-                .then(res => res.json())
-                .then(json => {
-                    setTrails(json.data)
+                .then(response => response.json())
+                .then(result => {
+                    setTrails(result.data)
                     setIsLoading(false)
                     setLoadMoreButton(true)
                 })
@@ -95,7 +97,14 @@ const AllTrails = () => {
             </section>
             {viewMapList()}
             {loading === true ? showLoading() : null}
-            {listView === true ? <ListView trails={trails} limit={limit} onLoadMore={onLoadMore} loadMoreButton={loadMoreButton} /> : null}
+            {listView === true ? <ListView 
+                                    user={user} 
+                                    trails={trails} 
+                                    limit={limit} 
+                                    onLoadMore={onLoadMore} 
+                                    loadMoreButton={loadMoreButton} 
+                                    id={id}/> 
+                                : null}
             {mapView === true ? <MapView trails={trails} limit={limit} /> : null}
         </div>
     );

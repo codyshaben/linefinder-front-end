@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './SignupLogin.scss';
 
 const Signup = (props) => {
-    const { firstName, setFirstName } = props;
 
+    const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -31,8 +31,8 @@ const Signup = (props) => {
             })
                 .then(res => res.json())
                 .then(result => {
-                    if (result.message === 'success') {
-                        window.location = `/home/${result.id}`
+                    if (result.message === 'ok') {
+                        window.location = `/login`
                     } else {
                         document.getElementById('login-response').innerText = result.message
                     };

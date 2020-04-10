@@ -1,20 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import MyTrails from './MyTrails';
-import AllTrails from './AllTrails';
 import './UserHome.scss';
-
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    useParams,
-} from 'react-router-dom';
+import MapView from './MapView'
 
 const Home = (props) => {
-    const { setIsLoggedIn, setId } = props;
-    const { id } = useParams();
+    const { user, setUser, id } = props;
 
-    const [user, setUser] = useState({});
+    const [userTrails, setUserTrails] = useState([])
 
     useEffect(() => {
 
@@ -26,42 +17,40 @@ const Home = (props) => {
             })
                 .then(res => res.json())
                 .then(result => {
-                    // console.log(result)
+                    console.log('result', result)
                     // console.log('localstorage id', localStorage.user_id)
                     // console.log('params id', id)
                     if (result.message === 'Un-Authorized') {
                         window.location = 'http://localhost:3001/login'
                     } else {
-                        setIsLoggedIn(true)
                         setUser(result.data)
-                        setId(id)
+                        setUserTrails(result.data.trails)
                     }
                 })
                 .catch(handleError);
         };
         fetchData();
-    }, [id, setIsLoggedIn, setId]);
+    }, [setUser]);
 
     const handleError = (error) => {
         console.error(error)
     };
 
-    console.log(user)
-
     return (
-        <Router>
             <div className='user-home'>
-                <p>Welcome, {user.first_name}</p>
-                <Switch>
-                    <Route path={`/home/${id}/mytrails`}>
-                        <MyTrails />
-                    </Route>
-                    <Route path={`/home/${id}/alltrails`}>
-                        <AllTrails />
-                    </Route>
-                </Switch>
+                <p>Welcome, {user.first_name} </p>
+                <main className='my-trails'>
+                    <div className='map-list'>
+                        {userTrails.map(trail => {
+                            return (
+                                <p>{trail.name}</p>
+                            )
+                        })}
+                    </div>
+                    <MapView className='map' trails={userTrails}/>
+                </main>
+                
             </div>
-        </Router>
     );
 };
 
