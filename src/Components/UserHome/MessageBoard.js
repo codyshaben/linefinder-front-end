@@ -2,8 +2,8 @@ import React from 'react'
 
 const MessageBoard = () => {
     return (
-        <div>
-            <p> hello from the message board. </p>
+        <div className='message-board'>
+            <h1>COMING SOON</h1>
         </div>
     )
 }

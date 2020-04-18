@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Login from './Components/SignupLogin/Login';
 import Signup from './Components/SignupLogin/Signup';
 import UserHome from './Components/UserHome/UserHome';
@@ -15,12 +15,42 @@ import {
 } from 'react-router-dom';
 
 const App = () => {
-  const id = localStorage.user_id
+  const id = sessionStorage.user_id
   const [user, setUser] = useState({});
   const [userTrails, setUserTrails] = useState([]);
   
+  useEffect(() => {
+
+    async function fetchData() {
+        await fetch(`http://localhost:9000/users/${id}`, {
+            headers: {
+                Authorization: `Bearer ${sessionStorage.token}`
+            }
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log('result', result)
+                // console.log('localstorage id', localStorage.user_id)
+                // console.log('params id', id)
+                if (result.message === 'Un-Authorized') {
+                    window.location = 'http://localhost:3001/login'
+                } else {
+                    setUser(result.data)
+                    setUserTrails(result.data.trails)
+                }
+            })
+            .catch(handleError);
+    };
+    fetchData();
+}, [id]);
+
+const handleError = (error) => {
+    console.error(error)
+};
+  
   const logOut = () => {
-    localStorage.removeItem('token')
+    sessionStorage.removeItem('token')
+    sessionStorage.removeItem('user_id')
     window.location = 'http://localhost:3001/login'
   };
 
@@ -44,7 +74,7 @@ const App = () => {
       <nav className='login-signup-nav'>
         <Link to='/login' >Log In</Link>
         <Link to='/signup'>Sign Up</Link>
-        <Link to='/'>Home</Link>
+        <Link to='/'>Main</Link>
       </nav>
     );
   };
@@ -54,7 +84,7 @@ const App = () => {
       <div className="App">
         <header>
           <h1 className='lineFinder'>lineFinder</h1>
-          {localStorage.token ? loggedInNav() : loggedOutNav()}
+          {sessionStorage.token ? loggedInNav() : loggedOutNav()}
         </header>
         <Switch>
           <Route path='/login'>
@@ -64,7 +94,7 @@ const App = () => {
             <Signup />
           </Route>
           <Route path={`/home/${id}/all-trails`}>
-            <AllTrails user={user} id={id}/>
+            <AllTrails user={user} id={id} userTrails={userTrails}/>
           </Route>
           <Route path={`/home/${id}/message-board`}>
             <MessageBoard user={user} id={id}/>
@@ -72,7 +102,7 @@ const App = () => {
           <Route path={`/home/${id}`}>
             <UserHome 
               setUser={setUser} 
-              setUserTrails={setUserTrails} 
+              userTrails={userTrails} 
               user={user}
               id={id}
             />

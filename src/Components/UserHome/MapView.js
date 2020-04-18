@@ -8,7 +8,7 @@ const MapView = (props) => {
     const { trails } = props;
 
     return (
-        <div style={{ height: '100vh', width: '100%' }}>
+        <div style={{ height: '500px', width: '500px' }}>
             <GoogleMapReact
                 className='google-map'
                 bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_API_KEY }}
