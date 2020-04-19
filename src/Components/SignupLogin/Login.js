@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './SignupLogin.scss';
 
-const Login = (props) => {
-    const { setIsLoggedIn } = props
+const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isSending, setIsSending] = useState(false);
@@ -30,7 +29,6 @@ const Login = (props) => {
                     if (result.message === 'Invalid login') {
                         document.getElementById('login-response').innerText = result.message
                     } else {
-                        setIsLoggedIn(true)
                         setIsSending(false)
                         sessionStorage.token = result.token
                         sessionStorage.user_id = result.id

@@ -41,8 +41,10 @@ const App = () => {
             })
             .catch(handleError);
     };
-    fetchData();
-}, [id]);
+    if (id) {
+      fetchData()
+    };
+}, [setUser]);
 
 const handleError = (error) => {
     console.error(error)

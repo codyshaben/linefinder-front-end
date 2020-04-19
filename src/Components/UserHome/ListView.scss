@@ -1,6 +1,7 @@
 .list-view {
     display: flex;
     flex-direction: column;
+    padding-top: 40px;
 }
 
 .trail-container {
@@ -12,7 +13,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     font-size: 30px;
-    margin: 10px;
+    margin: 4px 20px 0 20px;
 
     @media only screen and (min-width: 401px) and (max-width: 960px) {
         :nth-child(3) {
@@ -29,6 +30,7 @@
     h4 {
         font-weight: 300;
         margin: 0;
+        font-size: 25px;
     }
 
     div {
@@ -45,7 +47,7 @@
 }
 
 .image {
-    width: 400px;
+    width: 300px;
     border-radius: 5px;
 
     @media only screen and (min-width: 401px) and (max-width: 960px) {
@@ -55,7 +57,7 @@
 
 .location {
     margin-top: 0;
-    font-size: 22px;
+    font-size: 15px;
     font-weight: 200;
 }
 
@@ -65,7 +67,7 @@
 }
 
 .trail-details {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 200;
     margin: 5px;
 }
@@ -84,7 +86,7 @@
     margin-left: 10px;
 
     header {
-        font-size: 22px;
+        font-size: 20px;
         font-weight: 325;
         margin-left: 0.85em;
     }
@@ -99,6 +101,7 @@
 .star-text {
     margin: 5px 0 5px 0;
     font-weight: 150;
+    font-size: 20px;
 }
 
 .star-dropdown-list {
@@ -123,8 +126,8 @@
 }
 
 .result-length {
-    font-size: 15px;
-    margin: 25px 10px 0 0;
+    font-size: 18px;
+    margin: 25px 20px 0 0;
     align-self: flex-end;
     font-weight: 150;
 }
@@ -136,17 +139,15 @@
 }
 
 .add-trail-btn {
-    width: 40px;
     text-decoration: none;
     border: none;
     background-color:rgb(240, 236, 236);
-    font-size: 40px;
+    font-size: 16px;
+    color: rgb(17, 182, 17);
     margin-left: 20px;
-    padding: 0;
-
+    
     &:hover {
         cursor: pointer;
-        font: bolder;
-        color: rgb(11, 125, 201);
+        font-weight: bolder;
     };
 };

@@ -51,7 +51,7 @@ const ListView = (props) => {
                     setIsSending(false)
                 });
         };
-    }, [trailId]);
+    }, [isSending]);
 
     const trailDifficultySymbols = (difficulty) => {
         return difficulty === 'dblack' ? doubleBlack
@@ -82,7 +82,7 @@ const ListView = (props) => {
                                         setTrailId(trail.trail_id)
                                         setIsSending(true)
                                     })} 
-                                    className='add-trail-btn'><h4>＋</h4></button>
+                                    className='add-trail-btn'>Add Trail</button>
                             </div>
                             <p className='location'>{trail.location}</p>
                             <p className='star-text'>{trail.stars} Stars  | {trail.starVotes} Reviews</p>
