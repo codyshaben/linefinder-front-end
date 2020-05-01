@@ -1,5 +1,6 @@
 .user-home {
   background: url('../../Images/Canva-Mountains-Snow.jpg');
+  background-attachment: fixed;
   background-size: cover;
   height: 1000px;
   display: flex;
@@ -80,6 +81,7 @@
   margin-left: 7%;
   margin-right: 30px;
   background-color: white;
+  height: fit-content
 }
 
 .map {

@@ -10,25 +10,20 @@ import './ListView.scss';
 
 
 const ListView = (props) => {
-    const { trails, limit, loadMoreButton, onLoadMore, user, id } = props;
-    const email = user.email;
+    const { trails, limit, loadMoreButton, onLoadMore, id } = props;
 
     const [trailId, setTrailId] = useState();
     const [isSending, setIsSending] = useState(false);
-
-    console.log('email', email)
-    console.log('trail-id', trailId)
 
     useEffect(() => {
         const userTrailsUrl = `http://localhost:9000/user_trails/${id}`;
 
         const data = {
-            userEmail: email,
+            userId: id,
             trailId: trailId,
         };
 
         console.log('data', data)
-
         async function postUserTrail() {
             await fetch(userTrailsUrl, {
                 method: 'POST',
@@ -40,9 +35,6 @@ const ListView = (props) => {
                 body: JSON.stringify(data)
             })
                 .then(response => response.json())
-                .then(result => {
-                    console.log('result', result)
-                })
         };
 
         if (isSending) {
@@ -51,7 +43,7 @@ const ListView = (props) => {
                     setIsSending(false)
                 });
         };
-    }, [isSending]);
+    }, [id, isSending, trailId]);
 
     const trailDifficultySymbols = (difficulty) => {
         return difficulty === 'dblack' ? doubleBlack
@@ -79,6 +71,7 @@ const ListView = (props) => {
                                 <button 
                                     onClick={((e) => {
                                         e.preventDefault()
+                                        console.log('trail id', trail.trail_id)
                                         setTrailId(trail.trail_id)
                                         setIsSending(true)
                                     })} 

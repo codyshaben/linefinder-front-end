@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './SignupLogin.scss';
+import '../UserHome/UserHome.scss'
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -29,10 +30,9 @@ const Login = () => {
                     if (result.message === 'Invalid login') {
                         document.getElementById('login-response').innerText = result.message
                     } else {
-                        setIsSending(false)
                         sessionStorage.token = result.token
                         sessionStorage.user_id = result.id
-                        window.location = `/home/${result.id}`
+                        window.location = (`/home/${result.id}`)
                     }
                 })
                 .catch(error => {
@@ -46,6 +46,7 @@ const Login = () => {
                 });
         };
     });
+
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -63,30 +64,30 @@ const Login = () => {
     };
 
     return (
-        <div className='signup-login'>
-            <form onSubmit={handleSubmit}>
-                <div id='login-response'></div>
-                <input
-                    className='form-input'
-                    type='text'
-                    name="email"
-                    placeholder='Email'
-                    value={email}
-                    onChange={handleEmailChange}
-                    required
-                />
-                <input
-                    className='form-input'
-                    type='password'
-                    name="password"
-                    placeholder='Password'
-                    value={password}
-                    onChange={handlePasswordChange}
-                    required
-                />
-                <button type='submit'>Log In</button>
-            </form>
-        </div>
+            <div className='signup-login'>
+                <form onSubmit={handleSubmit}>
+                    <div id='login-response'></div>
+                    <input
+                        className='form-input'
+                        type='text'
+                        name="email"
+                        placeholder='Email'
+                        value={email}
+                        onChange={handleEmailChange}
+                        required
+                    />
+                    <input
+                        className='form-input'
+                        type='password'
+                        name="password"
+                        placeholder='Password'
+                        value={password}
+                        onChange={handlePasswordChange}
+                        required
+                    />
+                    <button type='submit'>Log In</button>
+                </form>
+            </div>
     );
 };
 

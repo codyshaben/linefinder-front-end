@@ -9,12 +9,14 @@ header {
   align-items: center;
   justify-content: space-between;
   background-color: white;
+  font-family: 'Raleway', sans-serif;
+  border-bottom: solid 1px gray;
 
   .lineFinder {
     display: flex;
     padding-left: .25em;
     font-size: 65px;
-    font-weight: 200;
+    font-weight: 100;
     margin: .2em;
     text-decoration: none;
     color: black;

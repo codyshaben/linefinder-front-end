@@ -10,8 +10,8 @@ const PublicHome = () => {
                 </p>
                 <h4>Trails</h4>
             </div>
-            <div className='places-content'>
-                <h4>Places</h4>
+            <div className='friends-content'>
+                <h4>Friends</h4>
                 <p>Join the message board and plan trips with your backcountry buddies, meet other outdoor adventurists like yourself, and build your own network. This is also a great way to carpool and make sure you aren't venturing out into the backcountry alone.
                 </p>
             </div>

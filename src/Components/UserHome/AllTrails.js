@@ -8,7 +8,6 @@ import MapView from './MapView';
 
 const AllTrails = (props) => {
     const { user, id } = props
-    console.log('all-trails user', user)
 
     const [limit, setLimit] = useState(10);
     const [isRatingOpen, setRatingOpen] = useState(false);
@@ -81,8 +80,6 @@ const AllTrails = (props) => {
             </section>
         );
     };
-
-    console.log(user)
 
     return (
         <div className='places' onLoad={scrollToPlaces} >
