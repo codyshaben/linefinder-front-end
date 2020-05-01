@@ -1,24 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 
-.app {
-  font-family: 'Raleway', sans-serif; 
-};
-
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: white;
-  font-family: 'Raleway', sans-serif;
   border-bottom: solid 1px gray;
+  font-family: 'Raleway', sans-serif;
+
 
   .lineFinder {
     display: flex;
     padding-left: .25em;
     font-size: 65px;
-    font-weight: 100;
+    font-weight: lighter;
     margin: .2em;
-    text-decoration: none;
     color: black;
 
     @media only screen and (min-width: 401px) and (max-width: 960px) {

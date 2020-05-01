@@ -50,10 +50,14 @@ const UserHome = (props) => {
     };
 
     const trailListing = (trail) => {
+        if (trail) {
+            
+        }
         return (
             <div key={trail.id} className='trail-listing'>
                 <p>{trail.name}</p>
                 <button onClick={((e) => {
+                    e.preventDefault()
                     e.target.parentNode.remove()
                     setTrailId(trail.trail_id)
                     setDeleteFetch(true)
@@ -62,10 +66,19 @@ const UserHome = (props) => {
         )
     }
 
-    const mapList = () => userTrails.map(trail => trailListing(trail))    
+    console.log(userTrails.length)
 
-    const noTrails = () => <p>No trails</p>
+    const mapList = () => {
+        if (userTrails.length == 0) {
+            return noTrails()
+        } else {
+            return userTrails.map(trail => trailListing(trail))
+        }   
+    } 
+
+    const noTrails = () => <p>Add trails to your collection!</p>
     
+
     return (
             <div className='user-home'>
                 <p>Welcome, {user.first_name} </p>
