@@ -8,7 +8,7 @@ const Login = () => {
     const [isSending, setIsSending] = useState(false);
 
     useEffect(() => {
-        const loginUrl = 'http://localhost:3000/auth/login';
+        const loginUrl = 'https://linefinder-back-end.herokuapp.com/auth/login';
 
         const user = {
             email: email,

@@ -38,7 +38,7 @@ const AllTrails = (props) => {
 
     useEffect(() => {
         async function fetchData() {
-            await fetch(`http://localhost:9000/trails/${fetchUrl}`)
+            await fetch(`https://linefinder-back-end.herokuapp.com/trails/${fetchUrl}`)
                 .then(response => response.json())
                 .then(result => {
                     setTrails(result.data)

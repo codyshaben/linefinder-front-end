@@ -11,7 +11,7 @@ const UserHome = (props) => {
 
     useEffect(() => {
         async function deleteTrail() {
-            await fetch(`http://localhost:9000/user_trails/${id}/${trailId}`, {
+            await fetch(`https://linefinder-back-end.herokuapp.com/user_trails/${id}/${trailId}`, {
                 method: 'DELETE',
             })
             .then(res => res.json())
@@ -25,7 +25,7 @@ const UserHome = (props) => {
 
     useEffect(() => {
         async function fetchData() {
-            await fetch(`http://localhost:9000/users/${id}`, {
+            await fetch(`https://linefinder-back-end.herokuapp.com/users/${id}`, {
                 headers: {
                     Authorization: `Bearer ${sessionStorage.token}`,
                     'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ const UserHome = (props) => {
                 .then(res => res.json())
                 .then(result => {
                     if (result.message === 'Un-Authorized') {
-                        window.location = 'http://localhost:3001/login'
+                        window.location = 'https://linefinder-back-end.herokuapp.com//login'
                     } else {
                         setUser(result.data)
                         setUserTrails(result.data.trails)

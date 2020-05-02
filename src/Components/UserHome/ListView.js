@@ -16,7 +16,7 @@ const ListView = (props) => {
     const [isSending, setIsSending] = useState(false);
 
     useEffect(() => {
-        const userTrailsUrl = `http://localhost:9000/user_trails/${id}`;
+        const userTrailsUrl = `https://linefinder-back-end.herokuapp.com/user_trails/${id}`;
 
         const data = {
             userId: id,

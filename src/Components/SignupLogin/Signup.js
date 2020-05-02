@@ -11,7 +11,7 @@ const Signup = (props) => {
     const [isSending, setIsSending] = useState(false);
 
     useEffect(() => {
-        const signupUrl = 'http://localhost:9000/auth/signup';
+        const signupUrl = 'https://linefinder-back-end.herokuapp.com/auth/signup';
 
         const data = {
             first_name: firstName,
