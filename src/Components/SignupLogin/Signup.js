@@ -23,7 +23,6 @@ const Signup = (props) => {
 
         async function postData() {
             await fetch(signupUrl, {
-                credentials: true,
                 method: 'POST',
                 headers: {
                     Authorization:  `Bearer ${localStorage.token}`,
