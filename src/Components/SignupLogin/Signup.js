@@ -23,6 +23,7 @@ const Signup = (props) => {
 
         async function postData() {
             await fetch(signupUrl, {
+                credentials: true,
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

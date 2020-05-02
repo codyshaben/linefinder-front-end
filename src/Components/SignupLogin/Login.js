@@ -17,7 +17,7 @@ const Login = () => {
 
         async function postData() {
             await fetch(loginUrl, {
-                credentials: 'include',
+                credentials: true,
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
