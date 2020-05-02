@@ -26,6 +26,7 @@ const Signup = (props) => {
                 credentials: true,
                 method: 'POST',
                 headers: {
+                    Authorization:  `Bearer ${localStorage.token}`,
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data)
