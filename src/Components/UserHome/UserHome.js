@@ -69,7 +69,7 @@ const UserHome = (props) => {
     console.log(userTrails.length)
 
     const mapList = () => {
-        if (userTrails.length == 0) {
+        if (userTrails.length === 0) {
             return noTrails()
         } else {
             return userTrails.map(trail => trailListing(trail))
