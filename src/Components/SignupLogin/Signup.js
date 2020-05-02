@@ -25,7 +25,7 @@ const Signup = (props) => {
             await fetch(signupUrl, {
                 method: 'POST',
                 headers: {
-                    Authorization:  `Bearer ${localStorage.token}`,
+                    Authorization:  `Bearer ${sessionStorage.token}`,
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data)

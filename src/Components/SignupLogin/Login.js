@@ -17,10 +17,9 @@ const Login = () => {
 
         async function postData() {
             await fetch(loginUrl, {
-                credentials: true,
                 method: 'POST',
                 headers: {
-                    Authorization:  `Bearer ${localStorage.token}`,
+                    Authorization:  `Bearer ${sessionStorage.token}`,
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(user),

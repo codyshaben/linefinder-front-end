@@ -13,6 +13,9 @@ const UserHome = (props) => {
         async function deleteTrail() {
             await fetch(`https://linefinder-back-end.herokuapp.com/user_trails/${id}/${trailId}`, {
                 method: 'DELETE',
+                headers: {
+                    Authorization: `Bearer ${sessionStorage.token}`,
+                }
             })
             .then(res => res.json())
             .catch(handleError)
