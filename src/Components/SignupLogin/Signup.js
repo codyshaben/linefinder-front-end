@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './SignupLogin.scss';
 import PublicNav from '../Navigation/PublicNav'
-import PublicHome from '../PublicHome/PublicHome';
 
 const Signup = (props) => {
 

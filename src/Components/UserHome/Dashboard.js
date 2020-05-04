@@ -24,7 +24,7 @@ const Dashboard = (props) => {
         if (deleteFetch) {
             deleteTrail()
         }
-    }, [deleteFetch, trailId, id])
+    }, [deleteFetch, trailId, id, handleError])
 
     const mapList = () => {
         if (userTrails.length === 0) {

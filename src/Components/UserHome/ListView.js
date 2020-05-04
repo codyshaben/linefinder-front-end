@@ -13,7 +13,6 @@ const ListView = (props) => {
 
     const [trailId, setTrailId] = useState();
     const [isSending, setIsSending] = useState(false);
-    const [trailAdded, setTrailAdded] = useState(false);
 
     useEffect(() => {
         const userTrailsUrl = `https://linefinder-back-end.herokuapp.com/user_trails/${id}`;
@@ -40,7 +39,6 @@ const ListView = (props) => {
             postUserTrail()
                 .then(() => {
                     setIsSending(false);
-                    setTrailAdded(true);
                 });
         };
     }, [id, isSending, trailId]);
@@ -62,7 +60,7 @@ const ListView = (props) => {
             return userTrail.trail_id === trail.trail_id
         })
         if (addedTrail) {
-            return <p id='check'>✔️</p>
+            return <span id='check' role='img'>✔️</span>
         } else {
             return (
                 <button 

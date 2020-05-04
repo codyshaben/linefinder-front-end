@@ -50,10 +50,6 @@ const Login = () => {
         };
     });
 
-    const redirectToLogin = (result) => {
-        return <Redirect to={`/home/$result.id`}/>
-    }
-
     const handleSubmit = (event) => {
         event.preventDefault()
         setIsSending(true)
