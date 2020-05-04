@@ -8,16 +8,15 @@ import green from '../../Images/green.jpg';
 import './AllTrails.scss';
 import './ListView.scss';
 
-
 const ListView = (props) => {
     const { trails, limit, loadMoreButton, onLoadMore, id, userTrails } = props;
 
     const [trailId, setTrailId] = useState();
     const [isSending, setIsSending] = useState(false);
-    const [trailAdded, setTrailAdded] = useState(false)
+    const [trailAdded, setTrailAdded] = useState(false);
 
     useEffect(() => {
-        const userTrailsUrl = `http://localhost:9000/user_trails/${id}`;
+        const userTrailsUrl = `https://linefinder-back-end.herokuapp.com/user_trails/${id}`;
 
         const data = {
             userId: id,
@@ -34,14 +33,14 @@ const ListView = (props) => {
                 },
                 body: JSON.stringify(data)
             })
-                .then(response => response.json())
+                .then(response => response.json());
         };
 
         if (isSending) {
             postUserTrail()
                 .then(() => {
-                    setIsSending(false)
-                    setTrailAdded(true)
+                    setIsSending(false);
+                    setTrailAdded(true);
                 });
         };
     }, [id, isSending, trailId]);
@@ -54,7 +53,7 @@ const ListView = (props) => {
     };
 
     const imageReplacement = (error) => {
-        error.target.src = noImage
+        error.target.src = noImage;
         return true
     };
 
@@ -68,18 +67,15 @@ const ListView = (props) => {
             return (
                 <button 
                     onClick={((e) => {
-                        setTrailId(trail.trail_id)
-                        setIsSending(true)
+                        setTrailId(trail.trail_id);
+                        setIsSending(true);
                     })} 
                     className='add-trail-btn'>
                     Add Trail
                 </button>
             )
-        }
-        
-    }
-
-
+        };
+    };
 
     return (
         <div className='list-view'>

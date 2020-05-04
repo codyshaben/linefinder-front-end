@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom'
 
 
 const Dashboard = (props) => {
-    const { user, userTrails, id, handleError } = props
+    const { user, userTrails, id, handleError } = props;
 
-    const [deleteFetch, setDeleteFetch] = useState(false)
-    const [trailId, setTrailId] = useState()
+    const [deleteFetch, setDeleteFetch] = useState(false);
+    const [trailId, setTrailId] = useState();
 
     useEffect(() => {
         async function deleteTrail() {
-            await fetch(`http://localhost:9000/user_trails/${id}/${trailId}`, {
+            await fetch(`https://linefinder-back-end.herokuapp.com/${id}/${trailId}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${sessionStorage.token}`,
@@ -31,8 +31,8 @@ const Dashboard = (props) => {
             return noTrails()
         } else {
             return userTrails.map(trail => trailListing(trail))
-        }   
-    } 
+        };
+    };
 
     const trailListing = (trail) => {
         return (
@@ -46,7 +46,7 @@ const Dashboard = (props) => {
                 })}>Remove</button>
             </div>
         )
-    }
+    };
 
     const noTrails = () => <Link id='add-trails' to={`/home/${id}/all-trails`}>Add trails to your collection!</Link>
 
@@ -63,6 +63,6 @@ const Dashboard = (props) => {
             </main>
         </div>
     )
-}
+};
 
-export default Dashboard
+export default Dashboard;

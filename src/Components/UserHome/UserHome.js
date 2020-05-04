@@ -18,7 +18,7 @@ const UserHome = () => {
 
     useEffect(() => {
         async function fetchData() {
-            await fetch(`http://localhost:9000/users/${id}`, {
+            await fetch(`https://linefinder-back-end.herokuapp.com/users/${id}`, {
                 headers: {
                     Authorization: `Bearer ${sessionStorage.token}`,
                     'Content-Type': 'application/json'
