@@ -1,0 +1,71 @@
+#dashboard {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Raleway', sans-serif; 
+}
+
+.my-trails {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 25px; 
+    width: 100%;
+    border-radius: 5px;
+    // height: 100%;
+}
+
+.map-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-weight: 100;
+    justify-content: flex-start;
+    align-self: center;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    box-shadow: 0px 0px 1px 0px;
+    margin: 7%;
+    background-color: white;
+    height: 100%;
+
+    p {
+        align-self: center;
+    }
+}
+
+.trail-listing {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px;
+    padding: 5px;
+  
+    button {
+      text-decoration: none;
+      border: none;
+      color: red;
+  
+      &:hover {
+        cursor: pointer;
+        font-weight: bold;
+      }
+    }
+}
+
+#add-trails {
+    text-decoration: none;
+    padding: 25px;
+    color: black;
+    align-self: center;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+#welcome {
+    align-self: center;
+    font-weight: 100;
+    font-size: 25px;
+}

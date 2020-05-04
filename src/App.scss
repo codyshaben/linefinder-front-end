@@ -11,7 +11,7 @@ header {
 
   .lineFinder {
     display: flex;
-    padding-left: .25em;
+    padding-left: 15px;
     font-size: 65px;
     font-weight: lighter;
     margin: .2em;
@@ -28,8 +28,10 @@ header {
   };
 };
 
-.login-signup-nav {
+#login-signup-nav {
   margin-right: 30px;
+  margin-top: -60px;
+  align-self: flex-end;
 
   @media only screen and (max-width: 400px) {
     margin-right: .5em;
@@ -76,4 +78,10 @@ header {
     font-weight: 350;
     box-shadow: 0 2px 0 0 rgb(11, 125, 201)
   };
+}
+
+#user-nav {
+  position: absolute;
+  margin-top: -60px;
+  align-self: flex-end;
 }

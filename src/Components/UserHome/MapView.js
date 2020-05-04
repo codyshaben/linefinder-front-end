@@ -8,13 +8,12 @@ const MapView = (props) => {
     const { trails } = props;
 
     return (
-        <div style={{ height: '500px', width: '40vw' }}>
+        <div style={{ height: '100%', width: '100%' }}>
             <GoogleMapReact
                 className='google-map'
                 bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_API_KEY }}
                 defaultCenter={{ lat: 39.766636, lng: -105.980210 }}
                 defaultZoom={8}
-                // defaultStyle={{ height: '300px', width: '300px' }}
             >
                 {trails.map(trail => {
                     return (

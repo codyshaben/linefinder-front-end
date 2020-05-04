@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './SignupLogin.scss';
 import '../UserHome/UserHome.scss'
+import { Redirect } from 'react-router-dom';
+import PublicNav from '../Navigation/PublicNav'
+
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -8,7 +11,7 @@ const Login = () => {
     const [isSending, setIsSending] = useState(false);
 
     useEffect(() => {
-        const loginUrl = 'https://linefinder-back-end.herokuapp.com/auth/login';
+        const loginUrl = 'http://localhost:9000/auth/login';
 
         const user = {
             email: email,
@@ -47,6 +50,9 @@ const Login = () => {
         };
     });
 
+    const redirectToLogin = (result) => {
+        return <Redirect to={`/home/$result.id`}/>
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -65,6 +71,7 @@ const Login = () => {
 
     return (
             <div className='signup-login'>
+                <PublicNav />
                 <form onSubmit={handleSubmit}>
                     <div id='login-response'></div>
                     <input

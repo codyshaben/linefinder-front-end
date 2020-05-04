@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './AllTrails.scss';
 import RingLoader from 'react-spinners/RingLoader';
-import RatingDropdown from '../RatingDropdown/RatingDropdown';
-import DifficultyDropdown from '../DifficultyDropdown/DifficultyDropdown';
+import RatingDropdown from '../DropdownMenus/RatingDropdown';
+import DifficultyDropdown from '../DropdownMenus/DifficultyDropdown';
 import ListView from './ListView';
 import MapView from './MapView';
 
 const AllTrails = (props) => {
-    const { user, id } = props
+    const { user, id, userTrails } = props;
 
     const [limit, setLimit] = useState(10);
     const [isRatingOpen, setRatingOpen] = useState(false);
@@ -18,6 +18,20 @@ const AllTrails = (props) => {
     const [loading, setIsLoading] = useState(true);
     const [fetchUrl, setFetchUrl] = useState('');
     const [trails, setTrails] = useState([]);
+
+    useEffect(() => {
+        async function fetchData() {
+            await fetch(`http://localhost:9000/trails/${fetchUrl}`)
+                .then(response => response.json())
+                .then(result => {
+                    setTrails(result.data)
+                    setIsLoading(false)
+                    setLoadMoreButton(true)
+                })
+                .catch(error => console.log(error));
+        };
+        fetchData();
+    }, [fetchUrl]);
 
     const toggleRatingDropDown = () => {
         setRatingOpen(!isRatingOpen);
@@ -32,34 +46,20 @@ const AllTrails = (props) => {
     const onLoadMore = () => setLimit(limit + 10);
 
     const scrollToPlaces = () => {
-        const placesContainer = document.querySelector('.places')
-        placesContainer.scroll(0, 1000)
+        const placesContainer = document.querySelector('.places');
+        placesContainer.scroll(0, 1000);
     };
 
-    useEffect(() => {
-        async function fetchData() {
-            await fetch(`https://linefinder-back-end.herokuapp.com/trails/${fetchUrl}`)
-                .then(response => response.json())
-                .then(result => {
-                    setTrails(result.data)
-                    setIsLoading(false)
-                    setLoadMoreButton(true)
-                })
-                .catch(error => console.log(error));
-        };
-        fetchData();
-    }, [fetchUrl]);
-
     const showListView = () => {
-        setListView(true)
-        setMapView(false)
-        setLoadMoreButton(true)
+        setListView(true);
+        setMapView(false);
+        setLoadMoreButton(true);
     };
 
     const showMapView = () => {
-        setListView(false)
-        setMapView(true)
-        setLoadMoreButton(false)
+        setListView(false);
+        setMapView(true);
+        setLoadMoreButton(false);
     };
 
     const showLoading = () => {
@@ -84,27 +84,35 @@ const AllTrails = (props) => {
     return (
         <div className='places' onLoad={scrollToPlaces} >
             <section className='dropdown-menu'>
-                <header>Sort by</header>
+                <header>Sort by:</header>
                 <div className='dropdown-title'>
-                    <header onClick={toggleRatingDropDown}  >Rating</header>
-                    {isRatingOpen === false ? null : <RatingDropdown fetchUrl={fetchUrl} setFetchUrl={setFetchUrl} />}
+                    <header onMouseOver={toggleRatingDropDown} >Rating</header>
+                    {isRatingOpen === false ? null : <RatingDropdown fetchUrl={fetchUrl} setFetchUrl={setFetchUrl} toggleRatingDropDown={toggleRatingDropDown}/>}
                 </div>
                 <div className='dropdown-title'>
-                    <header onClick={toggleDifficultyDropDown}>Difficulty</header>
-                    {isDifficultyOpen === false ? null : <DifficultyDropdown fetchUrl={fetchUrl} setFetchUrl={setFetchUrl} />}
+                    <header onMouseOver={toggleDifficultyDropDown}>Difficulty</header>
+                    {isDifficultyOpen === false ? null : <DifficultyDropdown fetchUrl={fetchUrl} setFetchUrl={setFetchUrl} toggleDifficultyDropDown={toggleDifficultyDropDown}/>}
                 </div>
             </section>
             {viewMapList()}
-            {loading === true ? showLoading() : null}
-            {listView === true ? <ListView 
-                                    user={user} 
-                                    trails={trails} 
-                                    limit={limit} 
-                                    onLoadMore={onLoadMore} 
-                                    loadMoreButton={loadMoreButton} 
-                                    id={id}/> 
-                                : null}
-            {mapView === true ? <MapView trails={trails} limit={limit} /> : null}
+            <section style={{height: '100vh', marginTop: '50px'}}>
+                {loading === true ? showLoading() : null}
+                {listView === true ? <ListView 
+                                        user={user} 
+                                        trails={trails} 
+                                        userTrails={userTrails}
+                                        limit={limit} 
+                                        onLoadMore={onLoadMore} 
+                                        loadMoreButton={loadMoreButton} 
+                                        id={id}/> 
+                                    : null}
+                {mapView === true ? <MapView 
+                                        id='alltrails-map' 
+                                        style={{ position:'relative'}}
+                                        trails={trails} 
+                                        limit={limit}/> 
+                                    : null}
+            </section>
         </div>
     );
 };

@@ -1,9 +1,11 @@
 import React from 'react';
 import './PublicHome.scss';
+import PublicNav from '../Navigation/PublicNav'
 
 const PublicHome = () => {
     return (
         <div className='public-home'>
+            <PublicNav />
             <h2>Start your next backcountry adventure.</h2>
             <div className='trail-content'>
                 <p>Create an account and gain access to over 400 backcountry trails to ski or snowboard in Colorado's Rocky Mountains. Get directions, trail info. (difficulty, ratings, vertical feet, etc.), and add your favorite trails to your personal collection.

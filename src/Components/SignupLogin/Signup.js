@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './SignupLogin.scss';
+import PublicNav from '../Navigation/PublicNav'
+import PublicHome from '../PublicHome/PublicHome';
 
 const Signup = (props) => {
 
@@ -70,6 +72,7 @@ const Signup = (props) => {
 
     return (
         <div className='signup-login'>
+            <PublicNav />
             <form onSubmit={handleSubmit}>
                 <div id='login-response'></div>
                 <input
