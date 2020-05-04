@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './SignupLogin.scss';
 import '../UserHome/UserHome.scss'
-import { Redirect } from 'react-router-dom';
 import PublicNav from '../Navigation/PublicNav'
 
 

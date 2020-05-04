@@ -60,7 +60,7 @@ const ListView = (props) => {
             return userTrail.trail_id === trail.trail_id
         })
         if (addedTrail) {
-            return <span id='check' role='img'>✔️</span>
+            return <span id='check' role='img' aria-label='check'>✔️</span>
         } else {
             return (
                 <button 
