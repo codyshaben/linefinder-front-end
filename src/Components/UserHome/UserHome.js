@@ -36,7 +36,7 @@ const UserHome = () => {
                 .catch(handleError);
         };
         fetchData();
-    }, [setUser, id]);
+    }, [setUser, setUserTrails, id]);
     
     const handleError = (error) => console.error(error);
     const redirectToLogin = () => window.location = '/login';

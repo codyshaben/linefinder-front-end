@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import './Nav.scss'
+
 
 const UserNav = (props) => {
     const { id } = props
@@ -11,7 +13,7 @@ const UserNav = (props) => {
       };
 
     return (
-      <div id='user-nav'>
+      <div className='nav' >
         <Link to={`/home/${id}`} className='loggedIn-nav'>Dashboard</Link>
         <Link to={`/home/${id}/message-board`} className='loggedIn-nav'>Message Board</Link>
         <Link to={`/home/${id}/all-trails`} className='loggedIn-nav'>All Trails</Link>

@@ -12,7 +12,7 @@ const Dashboard = (props) => {
 
     useEffect(() => {
         async function deleteTrail() {
-            await fetch(`https://linefinder-back-end.herokuapp.com/${id}/${trailId}`, {
+            await fetch(`https://linefinder-back-end.herokuapp.com/user_trails/${id}/${trailId}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${sessionStorage.token}`,

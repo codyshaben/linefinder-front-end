@@ -65,6 +65,7 @@ const ListView = (props) => {
             return (
                 <button 
                     onClick={((e) => {
+                        e.target.innerText = '✔️'
                         setTrailId(trail.trail_id);
                         setIsSending(true);
                     })} 
