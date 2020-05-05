@@ -9,38 +9,6 @@
   };
 };
 
-.people-places-nav {
-  margin: 150px 0 500px 0;
-  align-items: center;
-
-  @media only screen and (min-width: 401px) and (max-width: 960px) {
-    margin-top: 150px;
-  };
-
-  a {
-    margin: .5em;
-    padding: .5em;
-    background-color: rgb(11, 125, 201);
-    border-radius: .5em;
-    font-size: 35px;
-    font-weight: 200;
-    opacity: .75;
-    border: none;
-    text-decoration: none;
-    color: black;
-
-    &:hover {
-      cursor: pointer;
-      opacity: .9;
-    };
-
-    @media only screen and (min-width: 401px) and (max-width: 960px) {
-      font-size: 25px;
-    };
-  };
-};
-
-
 .message-board {
   font-family: 'Raleway', sans-serif;
   display: flex;

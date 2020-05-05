@@ -2,13 +2,23 @@ import React, { useState, useEffect } from 'react'
 import MapView from './MapView'
 import './Dashboard.scss'
 import { Link } from 'react-router-dom'
-
+import { Doughnut } from 'react-chartjs-2';
 
 const Dashboard = (props) => {
     const { user, userTrails, id, handleError } = props;
 
     const [deleteFetch, setDeleteFetch] = useState(false);
     const [trailId, setTrailId] = useState();
+
+    let greenTrails = 0
+    let blueTrails = 0
+    let blackTrails = 0
+    let doubleBlackTrails = 0
+    let verticalFeet = 0
+    let hiked = 0
+    let miles = 0
+
+    console.log(userTrails)
 
     useEffect(() => {
         async function deleteTrail() {
@@ -25,6 +35,17 @@ const Dashboard = (props) => {
             deleteTrail()
         }
     }, [deleteFetch, trailId, id, handleError])
+
+    userTrails.map(trail => {
+        hiked += trail.ascent
+        miles += trail.length
+        verticalFeet += Math.abs(trail.descent) 
+        return trail.difficulty === 'dblack' ? doubleBlackTrails += 1 :
+            trail.difficulty === 'black' ? blackTrails += 1 :
+                trail.difficulty === 'blue' ? blueTrails += 1 :
+                    trail.difficulty === 'green' ? greenTrails += 1 :
+                        null
+    })
 
     const mapList = () => {
         if (userTrails.length === 0) {
@@ -53,14 +74,34 @@ const Dashboard = (props) => {
     return (
         <div id='dashboard'>
             <h3 id='welcome'>Welcome, {user.first_name}</h3>
-            <main className='my-trails'>
+            <section className='my-trails'>
                 <div className='map-list'>
                     {userTrails ? mapList() : noTrails()}
                 </div>
-                <div className='map' style={{ height: '300px', width: '100%', margin: '7%' }}>
+                <div className='map' style={{ height: '430px', width: '100%', margin: '5% 5% 0 0' }}>
                     <MapView trails={userTrails}/>
                 </div>
-            </main>
+            </section>
+            <section id='user-stats'>
+                <div className='stats'>
+                    <Doughnut 
+                        data={{
+                            labels: ['Green', 'Blue', 'Black', 'Double Black'],
+                            datasets: [{
+                                data: [greenTrails, blueTrails, blackTrails, doubleBlackTrails],
+                                backgroundColor: ['rgb(17, 182, 17)', 'rgb(11, 125, 201)', 'rgb(65, 65, 65)', 'black']
+                            }]
+                        }}
+                        height='200px'
+                    />
+                </div>
+                <div className='stats'>
+                    <p>Vertical: {verticalFeet} ft.</p>
+                    <p>Hiked: {hiked} ft. </p>
+                    <p>Miles: {miles.toFixed(1)}</p>
+                    <p>Trails: {userTrails.length}</p>
+                </div>
+            </section>
         </div>
     )
 };
