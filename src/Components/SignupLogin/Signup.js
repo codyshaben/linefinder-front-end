@@ -69,6 +69,16 @@ const Signup = (props) => {
         setPassword(event.target.value)
     };
 
+    const validatePassword = () => {
+        if(document.getElementById('password').value === document.getElementById('password_confirmation').value) {
+            document.getElementById('message').style.color = 'green';
+            document.getElementById('message').innerText = 'Matching';
+        } else {
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').innerText = 'Not Matching';   
+        }
+    }
+
     return (
         <div className='signup-login'>
             <PublicNav />
@@ -102,23 +112,28 @@ const Signup = (props) => {
                     required
                 />
                 <input
+                    id='password'
                     className='form-input'
                     type='password'
                     name="password"
                     placeholder='Password'
                     value={password}
                     onChange={handlePasswordChange}
+                    onKeyUp={validatePassword}
                     required
                 />
                 <input
+                    id='password_confirmation'
                     className='form-input'
                     type='password'
                     name="password-confirmation"
                     placeholder='Confirm Password'
                     value={passwordConfirmation}
                     onChange={e => setPasswordConfirmation(e.target.value)}
+                    onKeyUp={validatePassword}
                     required
                 />
+                <span id='message'></span>
                 <button type='submit'>Sign Up</button>
             </form>
         </div>
