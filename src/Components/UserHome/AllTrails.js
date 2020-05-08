@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './AllTrails.scss';
-import RingLoader from 'react-spinners/RingLoader';
+import ShowLoading from '../ShowLoading/ShowLoading'
 import RatingDropdown from '../DropdownMenus/RatingDropdown';
 import DifficultyDropdown from '../DropdownMenus/DifficultyDropdown';
 import ListView from './ListView';
@@ -62,15 +62,6 @@ const AllTrails = (props) => {
         setLoadMoreButton(false);
     };
 
-    const showLoading = () => {
-        return (
-            <div className='loading-spinner'>
-                <RingLoader size={150} color={'rgb(11, 125, 201)'} loading={loading} />
-                <h3>Loading...</h3>
-            </div>
-        );
-    };
-
     const viewMapList = () => {
         return (
             <section className='views'>
@@ -94,25 +85,32 @@ const AllTrails = (props) => {
                     {isDifficultyOpen === false ? null : <DifficultyDropdown fetchUrl={fetchUrl} setFetchUrl={setFetchUrl} toggleDifficultyDropDown={toggleDifficultyDropDown}/>}
                 </div>
             </section>
-            {viewMapList()}
-            <section style={{height: '100vh', marginTop: '50px'}}>
-                {loading === true ? showLoading() : null}
-                {listView === true ? <ListView 
-                                        user={user} 
-                                        trails={trails} 
-                                        userTrails={userTrails}
-                                        limit={limit} 
-                                        onLoadMore={onLoadMore} 
-                                        loadMoreButton={loadMoreButton} 
-                                        id={id}/> 
-                                    : null}
-                {mapView === true ? <MapView 
-                                        id='alltrails-map' 
-                                        style={{ position:'relative'}}
-                                        trails={trails} 
-                                        limit={limit}/> 
-                                    : null}
-            </section>
+            {loading === true ? <ShowLoading /> : 
+                <div>
+                    <section className='views'>
+                        <button className='list-view' onClick={showListView}>List</button>
+                        <p>|</p>
+                        <button className='map-view' onClick={showMapView}>Map</button>
+                    </section>
+                    <section style={{height: '100vh', marginTop: '50px'}}>
+                        {listView === true ? <ListView 
+                                                user={user} 
+                                                trails={trails} 
+                                                userTrails={userTrails}
+                                                limit={limit} 
+                                                onLoadMore={onLoadMore} 
+                                                loadMoreButton={loadMoreButton} 
+                                                id={id}/> 
+                                            : null}
+                        {mapView === true ? <MapView 
+                                                id='alltrails-map' 
+                                                style={{ position:'relative'}}
+                                                trails={trails} 
+                                                limit={limit}/> 
+                                            : null}
+                    </section>
+                </div>
+            }
         </div>
     );
 };

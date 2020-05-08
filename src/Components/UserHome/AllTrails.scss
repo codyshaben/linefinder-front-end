@@ -50,7 +50,6 @@
     z-index: 1;
     padding: 15px;
     border-bottom: solid .25px;
-    margin-bottom: 50px;
 
     @media only screen and (min-width: 401px) and (max-width: 960px) {
         padding: .5em;
@@ -111,29 +110,7 @@
     };
 };
 
-.loading-spinner {
-    margin: 100px 0 0 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 
-    @media only screen and (min-width: 401px) and (max-width: 960px) {
-        margin: 70px 20px 0 0;
-    }
-
-    h3 {
-        margin-top: 50px;
-        margin-left: 40px;
-        font-size: 40px;
-        font-weight: 150;
-
-        @media only screen and (min-width: 401px) and (max-width: 960px) {
-            font-size: 30px;
-            margin-left: 40px;
-        }
-    }
-}
 
 .marker {
     position: absolute;
@@ -150,4 +127,3 @@
         z-index: 1;
     }
 }
-

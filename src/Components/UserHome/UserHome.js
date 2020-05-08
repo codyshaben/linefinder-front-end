@@ -47,7 +47,7 @@ const UserHome = () => {
                 <UserNav id={id}/>
                 <Switch>
                     <Route path={`/home/${id}/all-trails`}>
-                        <AllTrails user={user} id={id} userTrails={userTrails} />
+                        <AllTrails user={user} id={id} userTrails={userTrails} setUserTrails={setUserTrails} />
                     </Route>
                     <Route path={`/home/${id}/message-board`}>
                         <MessageBoard user={user} id={id}/>
@@ -58,6 +58,7 @@ const UserHome = () => {
                             id={id} 
                             userTrails={userTrails} 
                             handleError={handleError}
+                            setUserTrails={setUserTrails}
                         />
                     </Route>
                 </Switch>
