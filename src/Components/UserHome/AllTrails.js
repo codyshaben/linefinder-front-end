@@ -28,7 +28,7 @@ const AllTrails = (props) => {
                     setIsLoading(false)
                     setLoadMoreButton(true)
                 })
-                .catch(error => console.log(error));
+                .catch(error => console.error(error));
         };
         fetchData();
     }, [fetchUrl]);
@@ -62,16 +62,6 @@ const AllTrails = (props) => {
         setLoadMoreButton(false);
     };
 
-    const viewMapList = () => {
-        return (
-            <section className='views'>
-                <button className='list-view' onClick={showListView}>List</button>
-                <p>|</p>
-                <button className='map-view' onClick={showMapView}>Map</button>
-            </section>
-        );
-    };
-
     return (
         <div className='places' onLoad={scrollToPlaces} >
             <section className='dropdown-menu'>
@@ -92,7 +82,8 @@ const AllTrails = (props) => {
                         <p>|</p>
                         <button className='map-view' onClick={showMapView}>Map</button>
                     </section>
-                    <section style={{height: '100vh', marginTop: '50px'}}>
+                    <section style={{height: '100%', marginTop: '50px', overflowY: 'scroll',
+    scrollBehavior: 'smooth'}}>
                         {listView === true ? <ListView 
                                                 user={user} 
                                                 trails={trails} 

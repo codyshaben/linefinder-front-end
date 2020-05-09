@@ -20,7 +20,6 @@ const Signup = () => {
             last_name: lastName,
             email: email,
             password: password,
-            password_confirmation: passwordConfirmation
         };
 
         async function postData() {
@@ -51,7 +50,7 @@ const Signup = () => {
                     setIsSending(false);
                 });
         };
-    });
+    }, [isSending, email, firstName, lastName, password]);
 
     const handleSubmit = (event) => {
         event.preventDefault();

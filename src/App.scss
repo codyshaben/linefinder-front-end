@@ -5,7 +5,7 @@ header {
   align-items: center;
   justify-content: space-between;
   background-color: white;
-  border-bottom: solid 1px gray;
+  border-bottom: solid 1px rgb(11, 125, 201);
   font-family: 'Raleway', sans-serif;
 
 
@@ -27,4 +27,31 @@ header {
     };
   };
 };
+
+footer {
+  padding: 100px;
+  font-family: 'Raleway', sans-serif;
+  background-color: rgb(11, 125, 201);
+  opacity: .8;
+  position: relative;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    margin: 5px; 
+  }
+}
+
+.icon {
+  height: 40px;
+}
 

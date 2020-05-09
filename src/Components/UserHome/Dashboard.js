@@ -93,7 +93,7 @@ const Dashboard = (props) => {
                                     backgroundColor: ['rgb(17, 182, 17)', 'rgb(11, 125, 201)', 'rgb(65, 65, 65)', 'black']
                                 }]
                             }}
-                            height='200px'
+                            style={{height: '200px'}}
                         />
                     </div>
                     <div className='stats'>

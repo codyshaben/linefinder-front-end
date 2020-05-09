@@ -7,7 +7,7 @@
     flex-direction: column;
 
     h2 {
-        font-size: 45px;
+        font-size: 60px;
         font-family: 'Raleway', sans-serif; 
         font-weight: 300;
         margin-top: 0px;
@@ -16,83 +16,51 @@
     }
 
     p {
-        line-height: 1.75;
+        line-height: 1.5;
     }
 
 }
 
-.trail-content {
+.content {
     align-self: center;
+    background-color: white;
+    opacity: .8;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    vertical-align: middle;
+    padding: 150px;
+    font-family: 'Raleway', sans-serif;
+
+    p {
+        width: 60%;
+        font-size: 25px;
+        font-weight: 250;
+        align-self: center;
+    }
+
+    h4 {
+        font-size: 60px;
+        margin: 0;
+        align-self: center;
+    }
+}
+
+.trail {
     margin-top: 150px;
-    background-color: white;
-    opacity: .7;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    vertical-align: middle;
-    padding: 100px;
-    height: 175px;
-    font-family: 'Raleway', sans-serif;
-
-    p {
-        width: 60%;
-        font-size: 28px;
-        font-weight: 250;
-        align-self: center;
-    }
-
-    h4 {
-        font-size: 60px;
-        margin: 0;
-        align-self: center;
-    }
 }
 
-.friends-content {
-    align-self: center;
-    margin: 0;
-    background-color: white;
-    opacity: .7;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    vertical-align: middle;
-    padding: 100px;
-    border-top: solid 30px rgb(11, 125, 201);;
-    height: 175px;
-    font-family: 'Raleway', sans-serif;
-
-
-    p {
-        width: 60%;
-        font-size: 28px;
-        font-weight: 250;
-        align-self: center;
-    }
-
-    h4 {
-        font-size: 60px;
-        font-family: 'Raleway', sans-serif;
-        margin: 0;
-        align-self: center;
-
-    }
+.friends {
+    border-top: solid 50px rgb(11, 125, 201);;
 }
 
-.safety-content {
-    align-self: center;
-    background-color: white;
+.safety {
     margin: 0;
-    opacity: .7;
-    display: flex;
-    justify-content: space-evenly;
     flex-direction: column;
     width: 100%;
-    vertical-align: middle;
-    padding: 50px 0px 75px 0px;
+    padding: 150px;
     height: 375px;
-    border-top: solid 30px rgb(11, 125, 201);
-    font-family: 'Raleway', sans-serif;
+    border-top: solid 50px rgb(11, 125, 201);
 
     ul {
         list-style-type: decimal;
@@ -100,7 +68,7 @@
 
         li {
             margin: 15px;
-            font-size: 30px;
+            font-size: 25px;
             font-weight: 300;
         }
     }

@@ -50,7 +50,7 @@ const Login = () => {
                     setIsSending(false)
                 });
         };
-    });
+    }, [email, password, setIsSending, isSending]);
 
     const handleSubmit = (event) => {
         event.preventDefault()
