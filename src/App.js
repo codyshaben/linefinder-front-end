@@ -48,10 +48,10 @@ const App = () => {
             <section className='footer-section'>
               <h3>Follow us on social media!</h3>
               <div id='icon-div'>
-                <img src={twitterIcon} className='icon'></img>
-                <img src={facebookIcon} className='icon'></img>
-                <img src={youtubeIcon} className='icon'></img>
-                <img src={instagramIcon} className='icon'></img>
+                <img src={twitterIcon} className='icon' alt='twitter-icon'></img>
+                <img src={facebookIcon} className='icon' alt='facebook-icon'></img>
+                <img src={youtubeIcon} className='icon' alt='youtube-icon'></img>
+                <img src={instagramIcon} className='icon' alt='instagram-icon'></img>
               </div>
                 
             </section>
