@@ -27,8 +27,17 @@
     height: 350px;
     padding: 40px;
 
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        padding: 20px;
+        height: 390px;
+    };
+
     p {
         align-self: center;
+
+        @media only screen and (min-width: 401px) and (max-width: 960px) {
+            font-size: 15px;
+        };
     }
 
     h3 {
@@ -36,11 +45,14 @@
         padding-bottom: 20px;
         background-color: rgb(245, 239, 239);
         align-self: center;
-    }
-}
+
+        @media only screen and (min-width: 401px) and (max-width: 960px) {
+            font-size: 20px;
+          };
+    };
+};
 
 .list-container {
-    // border: solid;
     overflow-y: scroll;
     scroll-behavior: smooth;
 }
@@ -55,6 +67,10 @@
     border-bottom: solid 1px;
     padding: 5px;
     background-color: white;
+
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        padding: 2px;
+    };
   
     button {
       text-decoration: none;
@@ -83,7 +99,7 @@
     align-self: center;
     font-weight: 100;
     font-size: 25px;
-    margin-top: 75px
+    margin-top: 75px;
 }
 
 #user-stats {
@@ -105,5 +121,9 @@
 
     p {
         font-size: 25px;
+
+        @media only screen and (min-width: 401px) and (max-width: 960px) {
+            font-size: 20px;
+          };
     }
 }

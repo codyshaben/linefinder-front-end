@@ -12,7 +12,7 @@ const UserNav = (props) => {
       };
 
     return (
-      <div className='nav' >
+      <div className='nav' id='user-nav'>
         <a href={`/home/${id}`}className='loggedIn-nav'>Dashboard</a>
         <a href={`/home/${id}/message-board`} className='loggedIn-nav'>Message Board</a>
         <a href={`/home/${id}/all-trails`} className='loggedIn-nav'>All Trails</a>

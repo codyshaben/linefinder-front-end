@@ -7,7 +7,7 @@
     flex-direction: column;
 
     h2 {
-        font-size: 60px;
+        font-size: 50px;
         font-family: 'Raleway', sans-serif; 
         font-weight: 300;
         margin-top: 0px;
@@ -22,17 +22,17 @@
     p {
         line-height: 1.5;
     };
-}
+};
 
 .content {
     align-self: center;
     background-color: white;
     opacity: .8;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction: row;
     vertical-align: middle;
-    padding: 150px;
+    padding: 100px;
     font-family: 'Raleway', sans-serif;
 
     @media only screen and (min-width: 401px) and (max-width: 960px) {
@@ -50,7 +50,7 @@
         @media only screen and (min-width: 401px) and (max-width: 960px) {
             font-size: 15px;
         };
-    }
+    };
 
     h4 {
         font-size: 60px;
@@ -60,22 +60,22 @@
         @media only screen and (min-width: 401px) and (max-width: 960px) {
             font-size: 40px;
         };
-    }
-}
+    };
+};
 
 .trail {
-    margin-top: 150px;
-}
+    margin-top: 200px;
+};
 
 .friends {
     border-top: solid 50px rgb(11, 125, 201);;
-}
+};
 
 .safety {
     margin: 0;
     flex-direction: column;
     width: 100%;
-    padding: 150px;
+    padding: 125px;
     height: 375px;
     border-top: solid 50px rgb(11, 125, 201);
 
@@ -95,8 +95,8 @@
             @media only screen and (min-width: 401px) and (max-width: 960px) {
                 font-size: 20px;
             };
-        }
-    }
+        };
+    };
 
     h4 {
         font-size: 60px;
@@ -110,8 +110,8 @@
             margin: 0 0 20px 0;
 
         };
-    }
-}
+    };
+};
 
 #rei-link {
     text-decoration: none;
@@ -119,6 +119,5 @@
 
     &:hover {
         border-bottom: solid 2px rgb(11, 125, 201);
-    }
-
-}
+    };
+};

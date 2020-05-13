@@ -40,10 +40,10 @@ const App = () => {
         <footer>
           <div>
             <section className='footer-section'>
-              <p>Copyright 2020</p>
+              <p>© 2020 Cody Shaben</p>
               <p>Privacy Policy</p>
-              <p>Denver, CO</p>
               <p>support@linefinder.com</p>
+              <p>Denver, CO</p>
             </section>
             <section className='footer-section'>
               <h3>Follow us on social media!</h3>
