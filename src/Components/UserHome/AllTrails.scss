@@ -8,7 +8,6 @@
     flex-wrap: wrap;
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif; 
-
 };
 
 .views {
@@ -18,6 +17,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 50px;
+    opacity: .99;
     
     button {
         font-family: 'Raleway', sans-serif; 
@@ -27,6 +27,8 @@
         text-decoration: none;
         color: black;
         outline: none;
+        opacity: .99;
+
 
         &:hover {
             cursor: pointer;
@@ -110,8 +112,6 @@
     };
 };
 
-
-
 .marker {
     position: absolute;
     top: 50%;
@@ -125,5 +125,5 @@
 
     &:hover {
         z-index: 1;
-    }
-}
+    };
+};
