@@ -13,12 +13,15 @@
         margin-top: 0px;
         padding-top: 150px;
         align-self: center;
-    }
+
+        @media only screen and (min-width: 401px) and (max-width: 960px) {
+            font-size: 30px;
+        };
+    };
 
     p {
         line-height: 1.5;
-    }
-
+    };
 }
 
 .content {
@@ -32,17 +35,31 @@
     padding: 150px;
     font-family: 'Raleway', sans-serif;
 
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        justify-content: space-between;
+        padding: 75px;
+
+    };
+
     p {
         width: 60%;
         font-size: 25px;
         font-weight: 250;
         align-self: center;
+
+        @media only screen and (min-width: 401px) and (max-width: 960px) {
+            font-size: 15px;
+        };
     }
 
     h4 {
         font-size: 60px;
         margin: 0;
         align-self: center;
+
+        @media only screen and (min-width: 401px) and (max-width: 960px) {
+            font-size: 40px;
+        };
     }
 }
 
@@ -62,6 +79,10 @@
     height: 375px;
     border-top: solid 50px rgb(11, 125, 201);
 
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        height: 250px;
+    };
+
     ul {
         list-style-type: decimal;
         align-self: center;
@@ -70,6 +91,10 @@
             margin: 15px;
             font-size: 25px;
             font-weight: 300;
+
+            @media only screen and (min-width: 401px) and (max-width: 960px) {
+                font-size: 20px;
+            };
         }
     }
 
@@ -79,6 +104,12 @@
         margin: 0 0 50px 0;
         align-self: center;
         border-bottom: solid 2px rgb(11, 125, 201);
+
+        @media only screen and (min-width: 401px) and (max-width: 960px) {
+            font-size: 40px;
+            margin: 0 0 20px 0;
+
+        };
     }
 }
 

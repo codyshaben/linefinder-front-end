@@ -76,7 +76,9 @@ const Dashboard = (props) => {
             <section className='my-trails'>
                 <div className='map-list'>
                     <h3>My trails</h3>
-                    {userTrails ? mapList() : noTrails()}
+                    <div className='list-container'>
+                        {userTrails ? mapList() : noTrails()}
+                    </div>
                 </div>
                 <div className='map' style={{ height: '430px', width: '100%', margin: '5% 5% 0 0' }}>
                     <MapView trails={userTrails}/>

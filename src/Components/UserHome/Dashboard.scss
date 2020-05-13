@@ -14,7 +14,6 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
     border-radius: 5px;
 }
 
@@ -23,24 +22,31 @@
     flex-direction: column;
     width: 100%;
     font-weight: 100;
-    justify-content: center;
-    align-self: center;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
-    box-shadow: 0px 0px 1px 0px;
     margin: 5% 0 0 5%;
-    background-color: white;
-    height: 330px;
-    padding: 50px;
-
-    h3 {
-        align-self: center;
-        margin: -20px 0 0 10px;
-    }
+    background-color: rgb(239, 240, 240);;
+    height: 350px;
+    padding: 40px;
 
     p {
         align-self: center;
     }
+
+    h3 {
+        margin: 0;
+        padding-bottom: 20px;
+        background-color: rgb(245, 239, 239);
+        align-self: center;
+    }
+}
+
+.list-container {
+    // border: solid;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+.list-container::-webkit-scrollbar {
+    width: 2px;
 }
 
 .trail-listing {
@@ -48,6 +54,7 @@
     justify-content: space-between;
     border-bottom: solid 1px;
     padding: 5px;
+    background-color: white;
   
     button {
       text-decoration: none;
