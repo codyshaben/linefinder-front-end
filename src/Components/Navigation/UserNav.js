@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import './Nav.scss'
 
 
@@ -13,14 +14,15 @@ const UserNav = (props) => {
 
     return (
       <div className='nav' id='user-nav'>
-        <a href={`/home/${id}`}className='loggedIn-nav'>Dashboard</a>
-        <a href={`/home/${id}/message-board`} className='loggedIn-nav'>Message Board</a>
-        <a href={`/home/${id}/all-trails`} className='loggedIn-nav'>All Trails</a>
-        <a 
-          href='/login'
+        <Link to={`/home/${id}`}className='loggedIn-nav'>Dashboard</Link>
+        <Link to={`/home/${id}/message-board`} className='loggedIn-nav'>Message Board</Link>
+        <Link to={`/home/${id}/all-trails`} className='loggedIn-nav'>All Trails</Link>
+        <Link 
+          to='/login'
           className='loggedIn-nav' 
           onClick={logOut}
-        >Log Out</a>
+        >Log Out
+        </Link>
       </div>
     );
   };

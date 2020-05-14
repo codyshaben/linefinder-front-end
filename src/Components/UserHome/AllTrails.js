@@ -78,12 +78,11 @@ const AllTrails = (props) => {
             {loading === true ? <ShowLoading /> : 
                 <div>
                     <section className='views'>
-                        <button className='list-view' onClick={showListView}>List</button>
+                        <button className='view-button' onClick={showListView}>List</button>
                         <p>|</p>
-                        <button className='map-view' onClick={showMapView}>Map</button>
+                        <button className='view-button' onClick={showMapView}>Map</button>
                     </section>
-                    <section style={{height: '100%', marginTop: '50px', overflowY: 'scroll',
-    scrollBehavior: 'smooth'}}>
+                    <section style={{height: '100%', marginTop: '50px', overflowY: 'scroll', scrollBehavior: 'smooth'}}>
                         {listView === true ? <ListView 
                                                 user={user} 
                                                 trails={trails} 
@@ -93,14 +92,16 @@ const AllTrails = (props) => {
                                                 loadMoreButton={loadMoreButton} 
                                                 id={id}
                                                 setFetchUserTrails={setFetchUserTrails}
-                                              /> 
-                                            : null}
+                                                setFetchUrl={setFetchUrl}
+                                             /> 
+                                           : null}
                         {mapView === true ? <MapView 
                                                 id='alltrails-map' 
                                                 style={{ position:'relative'}}
                                                 trails={trails} 
-                                                limit={limit}/> 
-                                            : null}
+                                                limit={limit}
+                                            /> 
+                                          : null}
                     </section>
                 </div>
             }

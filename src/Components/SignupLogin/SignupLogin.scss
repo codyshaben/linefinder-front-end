@@ -24,6 +24,10 @@
         padding: 55px 60px 55px 60px;
         height: fit-content;
         margin: 200px 0 200px 0;
+
+        @media only screen and (min-width: 401px) and (max-width: 960px) {
+            width: 250px;
+        };
     };
 
     button {
@@ -44,6 +48,10 @@
         &:hover {
             opacity: 1;
         };
+
+        @media only screen and (min-width: 401px) and (max-width: 960px) {
+            font-size: 18px;
+        };
     };
 };
 
@@ -57,6 +65,10 @@
     font-family: 'Raleway', sans-serif; 
     color: rgb(11, 125, 201);
     background-color: white;
+
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        font-size: 15px;
+    };
 };
 
 #login-response {

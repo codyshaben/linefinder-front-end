@@ -9,7 +9,7 @@ import './AllTrails.scss';
 import './ListView.scss';
 
 const ListView = (props) => {
-    const { trails, limit, loadMoreButton, onLoadMore, id, userTrails, setFetchUserTrails } = props;
+    const { trails, limit, loadMoreButton, onLoadMore, id, userTrails, setFetchUserTrails, setFetchUrl } = props;
 
     const [trailId, setTrailId] = useState();
     const [isSending, setIsSending] = useState(false);
@@ -76,9 +76,17 @@ const ListView = (props) => {
         };
     };
 
+    const handleResetFilterClick = (e) => {
+        e.preventDefault()
+        setFetchUrl('')
+    }
+
     return (
         <div className='list-view'>
-            <p className='result-length'>Showing 1 - {limit} of {trails.length} results </p>
+            <div id='results'>
+                <button id='reset-button' onClick={handleResetFilterClick}>Clear filter</button>
+                <p id='result-length'> 1 - {limit} of {trails.length} results </p>
+            </div>
             {trails.slice(0, limit).map(trail => {
                 return (
                     <section className='trail-container' key={trail.id}>

@@ -3,12 +3,6 @@
     flex-direction: column;
     padding-top: 40px;
     font-family: 'Raleway', sans-serif; 
-    opacity: .99;
-
-    button {
-        opacity: .99;
-    }
-
 
     @media only screen and (min-width: 401px) and (max-width: 960px) {
         padding-top: 10px;
@@ -46,6 +40,10 @@
         font-weight: 300;
         margin: 0;
         font-size: 25px;
+
+        @media only screen and (min-width: 401px) and (max-width: 960px) {
+            font-size: 20px;
+        };
     };
 
     div {
@@ -54,9 +52,7 @@
     };
 
     @media only screen and (min-width: 401px) and (max-width: 960px) {
-        h4 {
-            font-size: 25px;
-        };
+        font-size: 22px;
     };
 };
 
@@ -139,13 +135,6 @@
     };
 };
 
-.result-length {
-    font-size: 18px;
-    margin: 0 20px 0 20px;
-    align-self: flex-end;
-    font-weight: 150;
-};
-
 .symbol {
     height: 50px;
     width: 50px;
@@ -176,4 +165,33 @@
 
 #check {
     margin: 0 0 0 20px;
+    font-size: 25px;
+
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        font-size: 20px;
+    };
 };
+
+#results {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#result-length {
+    font-size: 18px;
+    margin: 0 20px 0 0;
+    align-self: flex-end;
+    font-weight: 150;
+};
+
+#reset-button {
+    margin: 0 0 0 20px;
+    font-size: 18px;
+
+    &:hover {
+        cursor: pointer;
+        font-weight: bolder;
+        color: rgb(11, 125, 201)
+    };
+}

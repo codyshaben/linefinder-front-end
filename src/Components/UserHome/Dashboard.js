@@ -61,7 +61,6 @@ const Dashboard = (props) => {
                 <p>{trail.name}</p>
                 <button onClick={((e) => {
                     e.preventDefault();
-                    // e.target.parentNode.remove();
                     setTrailId(trail.trail_id);
                     setDeleteFetch(true);
                 })}>Remove</button>
@@ -69,7 +68,7 @@ const Dashboard = (props) => {
         )
     };
 
-    const noTrails = () => <Link id='add-trails' to={`/home/${id}/all-trails`}>Add trails to your collection!</Link>
+    const noTrails = () => <Link id='add-trails' to={`/home/${id}/all-trails`}>Add trails to your collection!</Link>;
 
     return (
         <div id='dashboard'>
@@ -85,6 +84,7 @@ const Dashboard = (props) => {
                     <MapView trails={userTrails}/>
                 </div>
             </section>
+            <h2 id='stats-title'>Stats</h2>
             {userTrails.length >= 1 ? 
                 <section id='user-stats'>
                     <div className='stats'>

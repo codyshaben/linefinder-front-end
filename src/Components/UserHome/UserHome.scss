@@ -2,10 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 30px;
+  margin-top: -11px;
 
   @media only screen and (min-width: 401px) and (max-width: 960px) {
-    font-size: 30px;
     background-size: cover;
+    margin-top: 0;
   };
 };
 
