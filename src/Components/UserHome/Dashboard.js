@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Doughnut } from 'react-chartjs-2';
 
 const Dashboard = (props) => {
-    const { user, userTrails, id, handleError } = props;
+    const { user, userTrails, id, handleError, setFetchUserTrails } = props;
 
     const [deleteFetch, setDeleteFetch] = useState(false);
     const [trailId, setTrailId] = useState();
@@ -27,13 +27,14 @@ const Dashboard = (props) => {
                 }
             })
             .then(res => res.json())
-            .then(res => console.log(res))
+            .then(res => setFetchUserTrails(true))
             .catch(handleError)
         }
         if (deleteFetch) {
             deleteTrail()
+            setDeleteFetch(false)
         }
-    }, [deleteFetch, trailId, id, handleError]);
+    }, [deleteFetch, trailId, id, handleError, setFetchUserTrails]);
 
     userTrails.map(trail => {
         hiked += trail.ascent;
@@ -60,7 +61,7 @@ const Dashboard = (props) => {
                 <p>{trail.name}</p>
                 <button onClick={((e) => {
                     e.preventDefault();
-                    e.target.parentNode.remove();
+                    // e.target.parentNode.remove();
                     setTrailId(trail.trail_id);
                     setDeleteFetch(true);
                 })}>Remove</button>
@@ -87,6 +88,7 @@ const Dashboard = (props) => {
             {userTrails.length >= 1 ? 
                 <section id='user-stats'>
                     <div className='stats'>
+                        <h2>Difficulty</h2>
                         <Doughnut 
                             data={{
                                 labels: ['Green', 'Blue', 'Black', 'Double Black'],

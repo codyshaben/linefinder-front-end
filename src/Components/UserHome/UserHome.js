@@ -15,6 +15,7 @@ const UserHome = () => {
     
     const [user, setUser] = useState('');
     const [userTrails, setUserTrails] = useState([])
+    const [fetchUserTrails, setFetchUserTrails] = useState(true)
 
     useEffect(() => {
         async function fetchData() {
@@ -35,8 +36,11 @@ const UserHome = () => {
                 })
                 .catch(handleError);
         };
-        fetchData();
-    }, [setUser, setUserTrails, id]);
+        if (fetchUserTrails) {
+            fetchData();
+            setFetchUserTrails(false)
+        }
+    }, [setUser, setUserTrails, id, setFetchUserTrails, fetchUserTrails]);
     
     const handleError = (error) => console.error(error);
     const redirectToLogin = () => window.location = '/login';
@@ -59,6 +63,7 @@ const UserHome = () => {
                             userTrails={userTrails} 
                             handleError={handleError}
                             setUserTrails={setUserTrails}
+                            setFetchUserTrails={setFetchUserTrails}
                         />
                     </Route>
                 </Switch>
