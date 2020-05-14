@@ -51,7 +51,13 @@ const UserHome = () => {
                 <UserNav id={id}/>
                 <Switch>
                     <Route path={`/home/${id}/all-trails`}>
-                        <AllTrails user={user} id={id} userTrails={userTrails} setUserTrails={setUserTrails} />
+                        <AllTrails 
+                            user={user} 
+                            id={id} 
+                            userTrails={userTrails} 
+                            setUserTrails={setUserTrails} 
+                            setFetchUserTrails={setFetchUserTrails}
+                        />
                     </Route>
                     <Route path={`/home/${id}/message-board`}>
                         <MessageBoard user={user} id={id}/>

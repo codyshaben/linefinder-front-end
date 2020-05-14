@@ -7,7 +7,7 @@ import ListView from './ListView';
 import MapView from './MapView';
 
 const AllTrails = (props) => {
-    const { user, id, userTrails } = props;
+    const { user, id, userTrails, setFetchUserTrails } = props;
 
     const [limit, setLimit] = useState(10);
     const [isRatingOpen, setRatingOpen] = useState(false);
@@ -91,7 +91,9 @@ const AllTrails = (props) => {
                                                 limit={limit} 
                                                 onLoadMore={onLoadMore} 
                                                 loadMoreButton={loadMoreButton} 
-                                                id={id}/> 
+                                                id={id}
+                                                setFetchUserTrails={setFetchUserTrails}
+                                              /> 
                                             : null}
                         {mapView === true ? <MapView 
                                                 id='alltrails-map' 

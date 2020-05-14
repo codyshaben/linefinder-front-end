@@ -9,7 +9,7 @@ import './AllTrails.scss';
 import './ListView.scss';
 
 const ListView = (props) => {
-    const { trails, limit, loadMoreButton, onLoadMore, id, userTrails } = props;
+    const { trails, limit, loadMoreButton, onLoadMore, id, userTrails, setFetchUserTrails } = props;
 
     const [trailId, setTrailId] = useState();
     const [isSending, setIsSending] = useState(false);
@@ -65,9 +65,9 @@ const ListView = (props) => {
             return (
                 <button 
                     onClick={((e) => {
-                        e.target.innerText = '✔️'
                         setTrailId(trail.trail_id);
                         setIsSending(true);
+                        setFetchUserTrails(true)
                     })} 
                     className='add-trail-btn'>
                     Add Trail
