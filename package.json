@@ -7,7 +7,7 @@
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
     "acorn": "^7.1.1",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "dotenv": "^8.2.0",
     "google-map-react": "^1.1.6",
     "history": "^4.10.1",
