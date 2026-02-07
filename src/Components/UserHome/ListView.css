@@ -1,0 +1,197 @@
+.list-view {
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    font-family: 'Raleway', sans-serif; 
+
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        padding-top: 10px;
+    };
+};
+
+.trail-container {
+    padding: 30px;
+    background-color: rgb(240, 236, 236);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 30px;
+    margin: 4px 20px 0 20px;
+    opacity: .99;
+
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        :nth-child(3) {
+            justify-content: flex-end;
+        };
+    };
+};
+
+.left-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        width: 100%;
+    };
+
+    h4 {
+        font-weight: 300;
+        margin: 0;
+        font-size: 25px;
+
+        @media only screen and (min-width: 401px) and (max-width: 960px) {
+            font-size: 20px;
+        };
+    };
+
+    div {
+        display: flex;
+        vertical-align: middle;
+    };
+
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        font-size: 22px;
+    };
+};
+
+.image {
+    width: 28%;
+    border-radius: 5px;
+
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        width: 100%;
+    };
+};
+
+.location {
+    margin-top: 0;
+    font-size: 15px;
+    font-weight: 200;
+};
+
+.summary {
+    font-size: 20px;
+    font-weight: 200;
+
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        font-size: 16px;
+        margin-bottom: 20px;
+    };
+};
+
+.trail-details {
+    font-size: 15px;
+    font-weight: 200;
+    margin: 5px;
+    padding-left: 20px;
+};
+
+.trail-description {
+    width: 50%;
+};
+
+.trail-info {
+    height: fit-content;
+    align-self: center;
+    padding: 5px;
+    width: 20%;
+
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        width: 40%;
+        margin-bottom: 20px;
+    };
+};
+
+.star-text {
+    margin: 5px 0 5px 0;
+    font-weight: 150;
+    font-size: 20px;
+
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        font-size: 16px;
+    };
+};
+
+.star-dropdown-list {
+    list-style: none;
+    font-size: 20px;
+    padding: 0;
+    position: absolute;
+    background-color: rgb(240, 236, 236);
+    z-index: 1;
+};
+
+.star-list-item {
+    margin: 0.5em;
+    font-weight: 225;
+    padding: 0.2em;
+
+    &:hover {
+        color: rgb(11, 125, 201);
+        cursor: pointer;
+        font-weight: 300;
+    };
+};
+
+.symbol {
+    height: 50px;
+    width: 50px;
+};
+
+.add-trail-btn {
+    font-family: 'Raleway', sans-serif; 
+    text-decoration: none;
+    border: none;
+    background-color:rgb(240, 236, 236);
+    font-size: 20px;
+    color: rgb(17, 182, 17);
+    margin-left: 20px;
+    margin-top: 4px;
+    outline: none;
+
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        font-size: 15px;
+        margin-left: 5px;
+        margin-top: 5px;
+    };
+    
+    &:hover {
+        cursor: pointer;
+        font-weight: bolder;
+    };
+};
+
+#check {
+    margin: 0 0 0 20px;
+    font-size: 25px;
+
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        font-size: 20px;
+    };
+};
+
+#results {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#result-length {
+    font-size: 18px;
+    margin: 0 20px 0 0;
+    align-self: flex-end;
+    font-weight: 150;
+};
+
+#reset-button {
+    margin: 0 0 0 20px;
+    font-size: 18px;
+
+    &:hover {
+        cursor: pointer;
+        font-weight: bolder;
+        color: rgb(11, 125, 201)
+    };
+}

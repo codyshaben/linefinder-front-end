@@ -1,0 +1,134 @@
+.places {
+    background-color: white;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif; 
+};
+
+.views {
+    font-family: 'Raleway', sans-serif; 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+
+    p {
+        margin: 0;
+    };
+};
+
+.dropdown-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    box-sizing: border-box;
+    background-color: rgb(11, 125, 201);
+    opacity: .7;
+    z-index: 1;
+    padding: 15px;
+    border-bottom: solid .25px;
+
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        padding: .5em;
+    };
+
+    header {
+        padding: 0;
+        font-size: 25px;
+        font-weight: 150;
+        background-color: rgb(11, 125, 201);
+        border: none;
+
+        @media only screen and (min-width: 401px) and (max-width: 960px) {
+            font-size: 20px;
+        };
+    };
+};
+
+.load-more {
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif; 
+    color: black;
+    padding: 1em;
+    font-size: 30px;
+    border: none;
+    align-content: center;
+    outline: none;
+
+    &:hover {
+        color:rgb(11, 125, 201);
+        cursor: pointer;
+    };
+
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        font-size: 20px;
+    };
+};
+
+.dropdown-title {
+    margin-left: 10px; 
+    color: black; 
+
+    header {
+        font-size: 25px;
+        font-weight: 250;
+        margin: 0 20px 0 20px;
+        background-color: rgb(11, 125, 201);
+        border: none;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        @media only screen and (min-width: 401px) and (max-width: 960px) {
+            font-size: 20px;
+            margin: 0 4px 0 4px;
+        };
+    };
+};
+
+.marker {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border: 1px solid;
+    border-radius: 1em;
+    user-select: none;
+    transform: translate(-50%, 50%);
+
+    &:hover {
+        z-index: 1;
+    };
+};
+
+.view-button {
+    font-family: 'Raleway', sans-serif; 
+    border: none;
+    font-size: 20px;
+    padding: 0 10px 0 10px;
+    text-decoration: none;
+    color: black;
+    outline: none;
+
+    &:hover {
+        cursor: pointer;
+        color: rgb(11, 125, 201);
+        border: none;
+    };
+}
+
+#reset-button {
+    font-family: 'Raleway', sans-serif; 
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-size: 20px;
+}

@@ -1,0 +1,84 @@
+.signup-login {
+    background: url('../../Images/Canva-Mountains-Snow.jpg');
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    a {
+        text-decoration: none;
+        color: rgb(11, 125, 201);
+        align-self: center;
+        margin-top: 15px;
+    };
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+        width: 300px;
+        background-color: rgb(240, 236, 236);
+        box-shadow: 0 2px 4px 1px rgb(75, 74, 74);
+        padding: 55px 60px 55px 60px;
+        height: fit-content;
+        margin: 200px 0 200px 0;
+
+        @media only screen and (min-width: 401px) and (max-width: 960px) {
+            width: 250px;
+        };
+    };
+
+    button {
+        text-decoration: none;
+        background-color: rgb(11, 125, 201);
+        outline: none;
+        width: 150px;
+        align-self: center;
+        padding: 10px;
+        border: none;
+        margin-top: 25px;
+        box-shadow: 0 2px 4px 1px rgb(75, 74, 74);
+        font-size: 25px;
+        font-family: 'Raleway', sans-serif; 
+        cursor: pointer;
+        opacity: .8;
+
+        &:hover {
+            opacity: 1;
+        };
+
+        @media only screen and (min-width: 401px) and (max-width: 960px) {
+            font-size: 18px;
+        };
+    };
+};
+
+.form-input {
+    outline: none;
+    font-size: 20px;
+    font-weight: 150;
+    border: rgb(230, 228, 228) solid 1px;
+    padding: 10px;
+    margin: 5px 0 5px 0;
+    font-family: 'Raleway', sans-serif; 
+    color: rgb(11, 125, 201);
+    background-color: white;
+
+    @media only screen and (min-width: 401px) and (max-width: 960px) {
+        font-size: 15px;
+    };
+};
+
+#login-response {
+    align-self: center;
+    color: red;
+    margin-bottom: 5px;
+    font-family: 'Raleway', sans-serif;
+};
+
+#message {
+    align-self: center;
+    font-family: 'Raleway', sans-serif; 
+};
