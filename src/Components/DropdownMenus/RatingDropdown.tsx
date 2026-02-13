@@ -1,5 +1,5 @@
 import React from 'react'
-import './DropDown.css'
+import styles from './DropDown.module.css'
 
 interface RatingDropdownProps {
   setFetchUrl: (url: string) => void
@@ -17,20 +17,20 @@ const RatingDropdown: React.FC<RatingDropdownProps> = ({
   const filterOneStars = () => setFetchUrl('one-star')
 
   return (
-    <ul className="dropdown-list" id="rating-list" onMouseLeave={toggleRatingDropDown}>
-      <button type="button" className="dropdown-li" onClick={filterFiveStars}>
+    <ul className={styles.dropdownList} id="rating-list" onMouseLeave={toggleRatingDropDown}>
+      <button type="button" className={styles.dropdownLi} onClick={filterFiveStars}>
         Five Star
       </button>
-      <button type="button" className="dropdown-li" onClick={filterFourStars}>
+      <button type="button" className={styles.dropdownLi} onClick={filterFourStars}>
         Four Star
       </button>
-      <button type="button" className="dropdown-li" onClick={filterThreeStars}>
+      <button type="button" className={styles.dropdownLi} onClick={filterThreeStars}>
         Three Star
       </button>
-      <button type="button" className="dropdown-li" onClick={filterTwoStars}>
+      <button type="button" className={styles.dropdownLi} onClick={filterTwoStars}>
         Two Star
       </button>
-      <button type="button" className="dropdown-li" onClick={filterOneStars}>
+      <button type="button" className={styles.dropdownLi} onClick={filterOneStars}>
         One Star
       </button>
     </ul>

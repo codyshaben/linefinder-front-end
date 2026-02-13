@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './Nav.css'
+import styles from './Nav.module.css'
 
 const PublicNav: React.FC = () => {
   return (
-    <nav className="nav" id="public-nav">
+    <nav className={`${styles.nav} ${styles.publicNav}`} id="public-nav">
       <Link to="/login">Log In</Link>
       <Link to="/signup">Sign Up</Link>
       <Link to="/">Home</Link>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, FormEvent } from 'react'
-import './SignupLogin.css'
+import styles from './SignupLogin.module.css'
 import ShowLoading from '../ShowLoading/ShowLoading'
 import PublicNav from '../Navigation/PublicNav'
 
@@ -73,15 +73,15 @@ const Signup: React.FC = () => {
   }
 
   return (
-    <div className="signup-login">
+    <div className={styles.signupLogin}>
       <PublicNav />
       {loading ? (
         <ShowLoading />
       ) : (
         <form onSubmit={handleSubmit}>
-          <div id="login-response"></div>
+          <div id="login-response" className={styles.loginResponse}></div>
           <input
-            className="form-input"
+            className={styles.formInput}
             type="text"
             name="first-name"
             placeholder="First Name"
@@ -90,7 +90,7 @@ const Signup: React.FC = () => {
             required
           />
           <input
-            className="form-input"
+            className={styles.formInput}
             type="text"
             name="last-name"
             placeholder="Last Name"
@@ -99,7 +99,7 @@ const Signup: React.FC = () => {
             required
           />
           <input
-            className="form-input"
+            className={styles.formInput}
             type="text"
             name="email"
             placeholder="Email"
@@ -109,7 +109,7 @@ const Signup: React.FC = () => {
           />
           <input
             id="password"
-            className="form-input"
+            className={styles.formInput}
             type="password"
             name="password"
             placeholder="Password"
@@ -120,7 +120,7 @@ const Signup: React.FC = () => {
           />
           <input
             id="password_confirmation"
-            className="form-input"
+            className={styles.formInput}
             type="password"
             name="password-confirmation"
             placeholder="Confirm Password"
@@ -129,7 +129,7 @@ const Signup: React.FC = () => {
             onKeyUp={validatePassword}
             required
           />
-          <span id="message"></span>
+          <span id="message" className={styles.message}></span>
           <button type="submit">Sign Up</button>
         </form>
       )}

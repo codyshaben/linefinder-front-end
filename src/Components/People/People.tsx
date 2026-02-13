@@ -1,10 +1,10 @@
 import React from 'react'
-import './People.css'
+import styles from './People.module.css'
 import '../../App.css'
 
 const People: React.FC = () => {
   return (
-    <div className="people">
+    <div className={styles.people}>
       <p>hello from the people page</p>
     </div>
   )

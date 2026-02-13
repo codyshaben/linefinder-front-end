@@ -1,0 +1,213 @@
+.publicHome {
+    background: url('../../images/Canva-Mountains-Snow.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.publicHome .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border-bottom: solid 1px rgb(11, 125, 201);
+    font-family: 'Raleway', sans-serif;
+}
+
+.publicHome  .header .title {
+        display: flex;
+        padding-left: 15px;
+        font-size: 65px;
+        font-weight: 150;
+        margin: .2em;
+        color: black;
+}
+
+.publicHome > h2 {
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Raleway', sans-serif; 
+    font-weight: unset;
+    margin-top: 0px;
+    padding-top: 150px;
+    align-self: center;
+}
+
+.publicHome > p {
+    line-height: 1.5rem;
+}   
+
+.content {
+    align-self: center;
+    background-color: white;
+    opacity: .8;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    vertical-align: middle;
+    padding: 100px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.content > p {
+    width: 60%;
+    font-size: 25px;
+    font-weight: 250;
+    align-self: center;
+}
+
+.content > h4 {
+    font-size: 60px;
+    margin: 0;
+    align-self: center;
+}
+
+.trail {
+    margin-top: 200px;
+}
+
+.friends {
+    border-top: solid 50px rgb(11, 125, 201);
+}
+
+.safety {
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+    width: 100%;
+    padding: 125px;
+    height: 375px;
+    border-top: solid 50px rgb(11, 125, 201);
+}
+
+.safety > h4 {
+    font-weight: 300;
+    font-size: 60px;
+    font-family: 'Raleway', sans-serif;
+    margin: 0 0 50px 0;
+    align-self: center;
+    border-bottom: solid 2px rgb(11, 125, 201);
+}
+
+.safety > ul {
+    list-style-type: decimal;
+    align-self: center;
+}
+
+.safety > ul > li {
+    margin: 15px;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.reiLink {
+    text-decoration: none;
+    color: rgb(11, 125, 201);
+}
+
+.reiLink:hover {
+    border-bottom: solid 2px rgb(11, 125, 201);
+}
+
+.footerSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.footerSection p {
+    margin: 5px;
+}
+
+.icon {
+    height: 40px;
+}
+
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+    .publicHome > h2 {
+        font-size: 30px;
+    }
+
+    .content {
+        justify-content: space-between;
+        padding: 75px;
+    }
+
+    .content > p {
+        font-size: 15px;
+    }
+
+    .content > h4 {
+        font-size: 40px;
+    }
+
+    .safety {
+        height: 250px;
+    }
+
+    .safety > h4 {
+        font-size: 40px;
+        margin: 0 0 20px 0;
+    }
+
+    .safety > ul > li {
+        font-size: 20px;
+    }
+
+}
+
+/* header {
+
+  
+    .lineFinder {
+      display: flex;
+      padding-left: 15px;
+      font-size: 65px;
+      font-weight: 150;
+      margin: .2em;
+      color: black;
+  
+      @media only screen and (min-width: 401px) and (max-width: 960px) {
+        font-size: 40px;
+        margin-top: .4em;
+        padding-left: 5px;
+      }
+  
+      @media only screen and (max-width: 400px) {
+        font-size: 25px;
+      }
+    }
+  }
+  
+  footer {
+    padding: 100px;
+    font-family: 'Raleway', sans-serif;
+    background-color: rgb(11, 125, 201);
+    opacity: .8;
+    position: relative;
+  
+    div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+  
+      @media only screen and (min-width: 401px) and (max-width: 960px) {
+        justify-content: space-between;
+  
+      }
+    }
+  }
+  
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+  
+    p {
+      margin: 5px; 
+    }
+  }
+  
+  .icon {
+    height: 40px;
+  } */

@@ -1,5 +1,5 @@
 import React from 'react'
-import './DropDown.css'
+import styles from './DropDown.module.css'
 
 interface DifficultyDropdownProps {
   setFetchUrl: (url: string) => void
@@ -16,17 +16,17 @@ const DifficultyDropdown: React.FC<DifficultyDropdownProps> = ({
   const filterGreen = () => setFetchUrl('green')
 
   return (
-    <ul className="dropdown-list" id="difficulty-list" onMouseLeave={toggleDifficultyDropDown}>
-      <button type="button" className="dropdown-li" onClick={filterDblack}>
+    <ul className={styles.dropdownList} id="difficulty-list" onMouseLeave={toggleDifficultyDropDown}>
+      <button type="button" className={styles.dropdownLi} onClick={filterDblack}>
         Double Black
       </button>
-      <button type="button" className="dropdown-li" onClick={filterBlack}>
+      <button type="button" className={styles.dropdownLi} onClick={filterBlack}>
         Black
       </button>
-      <button type="button" className="dropdown-li" onClick={filterBlue}>
+      <button type="button" className={styles.dropdownLi} onClick={filterBlue}>
         Blue
       </button>
-      <button type="button" className="dropdown-li" onClick={filterGreen}>
+      <button type="button" className={styles.dropdownLi} onClick={filterGreen}>
         Green
       </button>
     </ul>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import './UserHome.css'
+import styles from './UserHome.module.css'
 import AllTrails from './AllTrails'
 import MessageBoard from './MessageBoard'
 import UserNav from '../Navigation/UserNav'
@@ -44,7 +44,7 @@ const UserHome: React.FC = () => {
 
   return (
     <Router>
-      <div className="user-home">
+      <div className={styles.userHome}>
         <UserNav id={id} />
         <Routes>
           <Route

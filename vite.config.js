@@ -1,12 +1,14 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import path from 'path';
-
 export default defineConfig({
-  plugins: [react()],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
+    plugins: [react()],
+    build: {
+        outDir: 'dist',
     },
-  },
+    css: {
+        modules: {
+            localsConvention: 'camelCaseOnly', // Allows using camelCase in JS for hyphenated CSS classes
+            // other PostCSS options can be passed here
+        },
+    },
 });

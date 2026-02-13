@@ -1,13 +1,22 @@
-import React from 'react'
-import './PublicHome.css'
-import PublicNav from '../Navigation/PublicNav'
+import React from 'react';
+
+import twitterIcon from './../../images/twitterIcon.svg';
+import facebookIcon from './../../images/facebookIcon.svg';
+import youtubeIcon from './../../images/youtubeIcon.svg';
+import instagramIcon from './../../images/instagramIcon.svg';
+import PublicNav from '../Navigation/PublicNav';
+
+import styles from './PublicHome.module.css';
 
 const PublicHome: React.FC = () => {
   return (
-    <div className="public-home">
-      <PublicNav />
+    <div className={styles.publicHome}>
+      <header className={styles.header}>
+          <h1 className={styles.title}>lineFinder</h1>
+          <PublicNav />
+      </header>
       <h2>Start your next backcountry adventure.</h2>
-      <div className="content trail">
+      <div className={`${styles.content} ${styles.trail}`}>
         <p>
           Create an account and gain access to over 400 backcountry trails to ski or snowboard in
           Colorado&apos;s Rocky Mountains. Get directions, trail info. (difficulty, ratings,
@@ -15,7 +24,7 @@ const PublicHome: React.FC = () => {
         </p>
         <h4>Trails</h4>
       </div>
-      <div className="content friends">
+      <div className={`${styles.content} ${styles.friends}`}>
         <h4>Friends</h4>
         <p>
           Join the message board and plan trips with your backcountry buddies, meet other outdoor
@@ -23,7 +32,7 @@ const PublicHome: React.FC = () => {
           carpool and make sure you aren&apos;t venturing out into the backcountry alone.
         </p>
       </div>
-      <div className="content safety">
+      <div className={`${styles.content} ${styles.safety}`}>
         <h4>Safety Tips</h4>
         <ul>
           <li>DON&apos;T GO ALONE</li>
@@ -31,7 +40,7 @@ const PublicHome: React.FC = () => {
           <li>
             Always bring the proper equipment (Need help? Click{' '}
             <a
-              id="rei-link"
+              className={styles.reiLink}
               href="https://www.rei.com/learn/expert-advice/avalanche-safety-gear.html"
               target="_blank"
               rel="noopener noreferrer"
@@ -43,6 +52,25 @@ const PublicHome: React.FC = () => {
           <li>Last, but certainly not least, Have fun!!</li>
         </ul>
       </div>
+      <footer>
+          <div>
+            <section className={styles.footerSection}>
+              <p>© 2020 Cody Shaben</p>
+              <p>Privacy Policy</p>
+              <p>support@linefinder.com</p>
+              <p>Denver, CO</p>
+            </section>
+            <section className={styles.footerSection}>
+              <h3>Follow us on social media!</h3>
+              <div id="icon-div">
+                <img src={twitterIcon} className={styles.icon} alt="twitter-icon" />
+                <img src={facebookIcon} className={styles.icon} alt="facebook-icon" />
+                <img src={youtubeIcon} className={styles.icon} alt="youtube-icon" />
+                <img src={instagramIcon} className={styles.icon} alt="instagram-icon" />
+              </div>
+            </section>
+          </div>
+        </footer>
     </div>
   )
 }

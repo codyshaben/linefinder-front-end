@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import './AllTrails.css'
+import React, { useState, useEffect, useRef } from 'react'
+import styles from './AllTrails.module.css'
 import ShowLoading from '../ShowLoading/ShowLoading';
 import RatingDropdown from '../DropdownMenus/RatingDropdown'
 import DifficultyDropdown from '../DropdownMenus/DifficultyDropdown'
@@ -30,6 +30,7 @@ const AllTrails: React.FC<AllTrailsProps> = ({
   const [loading, setIsLoading] = useState(true)
   const [fetchUrl, setFetchUrl] = useState('')
   const [trails, setTrails] = useState<Trail[]>([])
+  const placesRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     async function fetchData() {
@@ -61,8 +62,7 @@ const AllTrails: React.FC<AllTrailsProps> = ({
   const onLoadMore = () => setLimit(limit + 10)
 
   const scrollToPlaces = () => {
-    const placesContainer = document.querySelector('.places')
-    if (placesContainer) placesContainer.scrollTo(0, 1000)
+    if (placesRef.current) placesRef.current.scrollTo(0, 1000)
   }
 
   const showListView = () => {
@@ -78,10 +78,10 @@ const AllTrails: React.FC<AllTrailsProps> = ({
   }
 
   return (
-    <div className="places" onLoad={scrollToPlaces}>
-      <section className="dropdown-menu">
+    <div ref={placesRef} className={styles.places} onLoad={scrollToPlaces}>
+      <section className={styles.dropdownMenu}>
         <header>Sort by:</header>
-        <div className="dropdown-title">
+        <div className={styles.dropdownTitle}>
           <header onMouseOver={toggleRatingDropDown}>Rating</header>
           {isRatingOpen && (
             <RatingDropdown
@@ -90,7 +90,7 @@ const AllTrails: React.FC<AllTrailsProps> = ({
             />
           )}
         </div>
-        <div className="dropdown-title">
+        <div className={styles.dropdownTitle}>
           <header onMouseOver={toggleDifficultyDropDown}>Difficulty</header>
           {isDifficultyOpen && (
             <DifficultyDropdown
@@ -104,12 +104,12 @@ const AllTrails: React.FC<AllTrailsProps> = ({
         <ShowLoading />
       ) : (
         <div>
-          <section className="views">
-            <button type="button" className="view-button" onClick={showListView}>
+          <section className={styles.views}>
+            <button type="button" className={styles.viewButton} onClick={showListView}>
               List
             </button>
             <p>|</p>
-            <button type="button" className="view-button" onClick={showMapView}>
+            <button type="button" className={styles.viewButton} onClick={showMapView}>
               Map
             </button>
           </section>

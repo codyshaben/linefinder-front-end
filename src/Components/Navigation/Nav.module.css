@@ -1,0 +1,72 @@
+.nav {
+    margin-right: 30px;
+    margin-top: -60px;
+    margin-bottom: 36px;
+    align-self: flex-end;
+}
+
+.nav a {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.nav a:hover {
+    cursor: pointer;
+    color: rgb(11, 125, 201);
+    font-weight: 350;
+    box-shadow: 0 2px 0 0 rgb(11, 125, 201);
+}
+
+.loggedInNav {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 250;
+    margin-right: 30px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+}
+
+.loggedInNav:hover {
+    cursor: pointer;
+    color: rgb(11, 125, 201);
+    font-weight: 350;
+    box-shadow: 0 2px 0 0 rgb(11, 125, 201);
+}
+
+.publicNav {
+    font-family: 'Raleway', sans-serif;
+}
+
+.publicNav a {
+    margin-right: 30px;
+}
+
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+    .nav a {
+        font-size: 15px;
+    }
+
+    .loggedInNav {
+        margin-top: -30px;
+    }
+
+    .publicNav {
+        margin-top: -45px;
+    }
+
+    .publicNav a {
+        margin-right: 20px;
+    }
+
+    .userNav {
+        margin: -55px 10px 20px 0;
+    }
+
+    .userNav a {
+        margin-right: 10px;
+    }
+}

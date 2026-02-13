@@ -1,5 +1,5 @@
 import React from 'react'
-import './AllTrails.css'
+import styles from './AllTrails.module.css'
 
 interface MarkerProps {
   lat: number
@@ -9,7 +9,7 @@ interface MarkerProps {
 const Marker: React.FC<MarkerProps> = () => {
   return (
     <div
-      className="marker"
+      className={styles.marker}
       style={{ backgroundColor: 'rgb(11, 125, 201)', cursor: 'pointer' }}
     />
   )

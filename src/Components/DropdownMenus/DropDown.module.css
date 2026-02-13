@@ -1,4 +1,4 @@
-.dropdown-list {
+.dropdownList {
     list-style: none;
     position: absolute;
     background-color: rgb(240, 236, 236);
@@ -10,13 +10,9 @@
     padding: 0;
     box-shadow: 0 2px 4px 0;
     opacity: 1;
-
-    @media only screen and (min-width: 401px) and (max-width: 960px) {
-        margin-top: 15px;
-    }
 }
 
-.dropdown-li {
+.dropdownLi {
     background-color: rgb(240, 236, 236);
     border: none;
     outline: none;
@@ -28,20 +24,26 @@
     position: relative;
     padding: 15px;
     align-self: flex-start;
+}
 
-    @media only screen and (min-width: 401px) and (max-width: 960px) {
-        padding: 8px 15px 8px 15px;
-        font-size: 15px;
-    };
+.dropdownLi:hover {
+    color: rgb(11, 125, 201);
+    cursor: pointer;
+    font-weight: 300;
+}
 
-    &:hover {
-        color: rgb(11, 125, 201);
-        cursor: pointer;
-        font-weight: 300;
+.dropdownLi:focus {
+    color: rgb(11, 125, 201);
+    font-weight: 400;
+}
+
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+    .dropdownList {
+        margin-top: 15px;
     }
 
-    &:focus {
-        color: rgb(11, 125, 201);
-        font-weight: 400;
-    };
-};
+    .dropdownLi {
+        padding: 8px 15px 8px 15px;
+        font-size: 15px;
+    }
+}

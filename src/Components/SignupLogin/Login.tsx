@@ -1,6 +1,5 @@
 import React, { useState, useEffect, FormEvent } from 'react'
-import './SignupLogin.css'
-import '../UserHome/UserHome.css'
+import styles from './SignupLogin.module.css'
 import PublicNav from '../Navigation/PublicNav'
 import ShowLoading from '../ShowLoading/ShowLoading'
 
@@ -52,15 +51,15 @@ const Login: React.FC = () => {
     setPassword(event.target.value)
 
   return (
-    <div className="signup-login">
+    <div className={styles.signupLogin}>
       <PublicNav />
       {loading ? (
         <ShowLoading />
       ) : (
         <form onSubmit={handleSubmit}>
-          <div id="login-response"></div>
+          <div id="login-response" className={styles.loginResponse}></div>
           <input
-            className="form-input"
+            className={styles.formInput}
             type="text"
             name="email"
             placeholder="Email"
@@ -69,7 +68,7 @@ const Login: React.FC = () => {
             required
           />
           <input
-            className="form-input"
+            className={styles.formInput}
             type="password"
             name="password"
             placeholder="Password"

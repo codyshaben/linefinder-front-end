@@ -1,17 +1,19 @@
-.user-home {
+.userHome {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 30px;
   margin-top: -11px;
+}
 
-  @media only screen and (min-width: 401px) and (max-width: 960px) {
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+  .userHome {
     background-size: cover;
     margin-top: 0;
-  };
-};
+  }
+}
 
-.message-board {
+.messageBoard {
   font-family: 'Raleway', sans-serif;
   display: flex;
   flex-direction: column;
@@ -20,12 +22,11 @@
   background-attachment: fixed;
   background-size: cover;
   height: 600px;
+}
 
-  h1 {
-    align-self: center;
-    font-weight: 100;
-    margin-top: 10%;
-    font-size: 70px;
-  };
-};
-
+.messageBoard h1 {
+  align-self: center;
+  font-weight: 100;
+  margin-top: 10%;
+  font-size: 70px;
+}

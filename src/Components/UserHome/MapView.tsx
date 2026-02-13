@@ -1,7 +1,6 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react'
 import Marker from './Marker'
-import './UserHome.css'
 import type { Trail } from '../../types'
 
 interface MapViewProps {

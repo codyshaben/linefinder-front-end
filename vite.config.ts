@@ -6,4 +6,10 @@ export default defineConfig({
   build: {
     outDir: 'dist',
   },
+  css: {
+    modules: {
+      localsConvention: 'camelCaseOnly', // Allows using camelCase in JS for hyphenated CSS classes
+      // other PostCSS options can be passed here
+    },
+  },
 })

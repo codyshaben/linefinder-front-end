@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import MapView from './MapView'
-import './Dashboard.css'
+import styles from './Dashboard.module.css'
 import { Link } from 'react-router-dom'
 import { Doughnut } from 'react-chartjs-2'
 import type { User, Trail } from '../../types'
@@ -64,7 +64,7 @@ const Dashboard: React.FC<DashboardProps> = ({
   }, [deleteFetch, trailId, id, handleError, setFetchUserTrails])
 
   const trailListing = (trail: Trail) => (
-    <div key={trail.id} className="trail-listing">
+    <div key={trail.id} className={styles.trailListing}>
       <p>{trail.name}</p>
       <button
         type="button"
@@ -80,7 +80,7 @@ const Dashboard: React.FC<DashboardProps> = ({
   )
 
   const noTrails = () => (
-    <Link id="add-trails" to={`/home/${id}/all-trails`}>
+    <Link id="add-trails" className={styles.addTrails} to={`/home/${id}/all-trails`}>
       Add trails to your collection!
     </Link>
   )
@@ -93,21 +93,21 @@ const Dashboard: React.FC<DashboardProps> = ({
   const firstName = typeof user === 'object' && user ? user.first_name : ''
 
   return (
-    <div id="dashboard">
-      <h3 id="welcome">Welcome, {firstName}</h3>
-      <section className="my-trails">
-        <div className="map-list">
+    <div id="dashboard" className={styles.dashboard}>
+      <h3 id="welcome" className={styles.welcome}>Welcome, {firstName}</h3>
+      <section className={styles.myTrails}>
+        <div className={styles.mapList}>
           <h3>My trails</h3>
-          <div className="list-container">{userTrails.length ? mapList() : noTrails()}</div>
+          <div className={styles.listContainer}>{userTrails.length ? mapList() : noTrails()}</div>
         </div>
         <div className="map" style={{ height: '430px', width: '100%', margin: '5% 5% 0 0' }}>
           <MapView trails={userTrails} />
         </div>
       </section>
-      <h2 id="stats-title">Stats</h2>
+      <h2 id="stats-title" className={styles.statsTitle}>Stats</h2>
       {userTrails.length >= 1 ? (
-        <section id="user-stats">
-          <div className="stats">
+        <section id="user-stats" className={styles.userStats}>
+          <div className={styles.stats}>
             <h2>Difficulty</h2>
             <Doughnut
               data={{
@@ -127,7 +127,7 @@ const Dashboard: React.FC<DashboardProps> = ({
               style={{ height: '200px' }}
             />
           </div>
-          <div className="stats">
+          <div className={styles.stats}>
             <p>Vertical Skied: {verticalFeet} ft.</p>
             <p>Vertical Hiked: {hiked} ft.</p>
             <p>Miles Skied: {miles.toFixed(1)}</p>

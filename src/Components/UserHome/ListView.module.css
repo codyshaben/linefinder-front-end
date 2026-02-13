@@ -1,0 +1,194 @@
+.listView {
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.trailContainer {
+    padding: 30px;
+    background-color: rgb(240, 236, 236);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 30px;
+    margin: 4px 20px 0 20px;
+    opacity: .99;
+}
+
+.leftSide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.leftSide h4 {
+    font-weight: 300;
+    margin: 0;
+    font-size: 25px;
+}
+
+.leftSide div {
+    display: flex;
+    vertical-align: middle;
+}
+
+.image {
+    width: 28%;
+    border-radius: 5px;
+}
+
+.location {
+    margin-top: 0;
+    font-size: 15px;
+    font-weight: 200;
+}
+
+.summary {
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.trailDetails {
+    font-size: 15px;
+    font-weight: 200;
+    margin: 5px;
+    padding-left: 20px;
+}
+
+.trailDescription {
+    width: 50%;
+}
+
+.trailInfo {
+    height: fit-content;
+    align-self: center;
+    padding: 5px;
+    width: 20%;
+}
+
+.starText {
+    margin: 5px 0 5px 0;
+    font-weight: 150;
+    font-size: 20px;
+}
+
+.starDropdownList {
+    list-style: none;
+    font-size: 20px;
+    padding: 0;
+    position: absolute;
+    background-color: rgb(240, 236, 236);
+    z-index: 1;
+}
+
+.starListItem {
+    margin: 0.5em;
+    font-weight: 225;
+    padding: 0.2em;
+}
+
+.starListItem:hover {
+    color: rgb(11, 125, 201);
+    cursor: pointer;
+    font-weight: 300;
+}
+
+.symbol {
+    height: 50px;
+    width: 50px;
+}
+
+.addTrailBtn {
+    font-family: 'Raleway', sans-serif;
+    text-decoration: none;
+    border: none;
+    background-color: rgb(240, 236, 236);
+    font-size: 20px;
+    color: rgb(17, 182, 17);
+    margin-left: 20px;
+    margin-top: 4px;
+    outline: none;
+}
+
+.addTrailBtn:hover {
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.check {
+    margin: 0 0 0 20px;
+    font-size: 25px;
+}
+
+.results {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.resultLength {
+    font-size: 18px;
+    margin: 0 20px 0 0;
+    align-self: flex-end;
+    font-weight: 150;
+}
+
+.resetButton {
+    margin: 0 0 0 20px;
+    font-size: 18px;
+}
+
+.resetButton:hover {
+    cursor: pointer;
+    font-weight: bolder;
+    color: rgb(11, 125, 201);
+}
+
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+    .listView {
+        padding-top: 10px;
+    }
+
+    .trailContainer:nth-child(3) {
+        justify-content: flex-end;
+    }
+
+    .leftSide {
+        width: 100%;
+        font-size: 22px;
+    }
+
+    .leftSide h4 {
+        font-size: 20px;
+    }
+
+    .image {
+        width: 100%;
+    }
+
+    .summary {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .trailInfo {
+        width: 40%;
+        margin-bottom: 20px;
+    }
+
+    .starText {
+        font-size: 16px;
+    }
+
+    .addTrailBtn {
+        font-size: 15px;
+        margin-left: 5px;
+        margin-top: 5px;
+    }
+
+    .check {
+        font-size: 20px;
+    }
+}

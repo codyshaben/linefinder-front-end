@@ -5,8 +5,8 @@ import doubleBlack from '../../images/double-black.jpg'
 import black from '../../images/black.jpg'
 import blue from '../../images/blue.jpg'
 import green from '../../images/green.jpg'
-import './AllTrails.css'
-import './ListView.css'
+import allTrailsStyles from './AllTrails.module.css'
+import styles from './ListView.module.css'
 import type { User, Trail } from '../../types'
 
 interface ListViewProps {
@@ -70,7 +70,7 @@ const ListView: React.FC<ListViewProps> = ({
     const addedTrail = userTrails.find((ut) => ut.trail_id === trail.trail_id)
     if (addedTrail) {
       return (
-        <span id="check" role="img" aria-label="check">
+        <span id="check" className={styles.check} role="img" aria-label="check">
           ✔️
         </span>
       )
@@ -83,7 +83,7 @@ const ListView: React.FC<ListViewProps> = ({
           setIsSending(true)
           setFetchUserTrails(true)
         }}
-        className="add-trail-btn"
+        className={styles.addTrailBtn}
       >
         Add Trail
       </button>
@@ -96,24 +96,24 @@ const ListView: React.FC<ListViewProps> = ({
   }
 
   return (
-    <div className="list-view">
-      <div id="results">
-        <button type="button" id="reset-button" onClick={handleResetFilterClick}>
+    <div className={styles.listView}>
+      <div id="results" className={styles.results}>
+        <button type="button" className={styles.resetButton} onClick={handleResetFilterClick}>
           Clear filter
         </button>
-        <p id="result-length">
+        <p id="result-length" className={styles.resultLength}>
           1 - {limit} of {trails.length} results
         </p>
       </div>
       {trails.slice(0, limit).map((trail) => (
-        <section className="trail-container" key={trail.id}>
-          <div className="left-side trail-description">
+        <section className={styles.trailContainer} key={trail.id}>
+          <div className={`${styles.leftSide} ${styles.trailDescription}`}>
             <div>
               <h4 id="trail-title">{trail.name}</h4>
               {checkIfAdded(trail)}
             </div>
-            <p className="location">{trail.location}</p>
-            <p className="star-text">
+            <p className={styles.location}>{trail.location}</p>
+            <p className={styles.starText}>
               {trail.stars} Stars | {trail.starVotes} Reviews
             </p>
             <StarRatings
@@ -121,22 +121,22 @@ const ListView: React.FC<ListViewProps> = ({
               starRatedColor="rgb(11, 125, 201)"
               starDimension="30px"
             />
-            <p className="summary">{trail.summary}</p>
+            <p className={styles.summary}>{trail.summary}</p>
           </div>
-          <div className="left-side trail-info">
+          <div className={`${styles.leftSide} ${styles.trailInfo}`}>
             <img
-              className="trail-details symbol"
+              className={`${styles.trailDetails} ${styles.symbol}`}
               src={trailDifficultySymbols(trail.difficulty)}
               alt="Difficulty symbol"
             />
-            <p className="trail-details">Length | {trail.length} Miles</p>
-            <p className="trail-details">Ascent | {trail.ascent} Feet</p>
-            <p className="trail-details">Descent | {trail.descent} Feet</p>
-            <p className="trail-details">Highest Altitude | {trail.high} Feet</p>
-            <p className="trail-details">Lowest Altitude | {trail.low} Feet</p>
+            <p className={styles.trailDetails}>Length | {trail.length} Miles</p>
+            <p className={styles.trailDetails}>Ascent | {trail.ascent} Feet</p>
+            <p className={styles.trailDetails}>Descent | {trail.descent} Feet</p>
+            <p className={styles.trailDetails}>Highest Altitude | {trail.high} Feet</p>
+            <p className={styles.trailDetails}>Lowest Altitude | {trail.low} Feet</p>
           </div>
           <img
-            className="image"
+            className={styles.image}
             src={trail.imgMedium}
             alt="Trail"
             onError={imageReplacement}
@@ -144,7 +144,7 @@ const ListView: React.FC<ListViewProps> = ({
         </section>
       ))}
       {loadMoreButton ? (
-        <button type="button" onClick={onLoadMore} className="load-more">
+        <button type="button" onClick={onLoadMore} className={allTrailsStyles.loadMore}>
           Load More
         </button>
       ) : null}

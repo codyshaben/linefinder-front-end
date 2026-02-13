@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './Nav.css'
+import styles from './Nav.module.css'
 
 interface UserNavProps {
   id: string
@@ -14,17 +14,17 @@ const UserNav: React.FC<UserNavProps> = ({ id }) => {
   }
 
   return (
-    <div className="nav" id="user-nav">
-      <Link to={`/home/${id}`} className="loggedIn-nav">
+    <div className={`${styles.nav} ${styles.userNav}`} id="user-nav">
+      <Link to={`/home/${id}`} className={styles.loggedInNav}>
         Dashboard
       </Link>
-      <Link to={`/home/${id}/message-board`} className="loggedIn-nav">
+      <Link to={`/home/${id}/message-board`} className={styles.loggedInNav}>
         Message Board
       </Link>
-      <Link to={`/home/${id}/all-trails`} className="loggedIn-nav">
+      <Link to={`/home/${id}/all-trails`} className={styles.loggedInNav}>
         All Trails
       </Link>
-      <Link to="/login" className="loggedIn-nav" onClick={logOut}>
+      <Link to="/login" className={styles.loggedInNav} onClick={logOut}>
         Log Out
       </Link>
     </div>
