@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './AllTrails.css'
-import ShowLoading from '../ShowLoading/ShowLoading'
+import ShowLoading from '../ShowLoading/ShowLoading';
 import RatingDropdown from '../DropdownMenus/RatingDropdown'
 import DifficultyDropdown from '../DropdownMenus/DifficultyDropdown'
 import ListView from './ListView'
